@@ -4,18 +4,21 @@ default: &default
   pool: 5
   username: <%= ENV['DB_USERNAME'] %>
   password: <%= ENV['DB_PASSWORD'] %>
+  
   host: localhost 
 
 development:
   <<: *default
   database: test-guru_development
 
+
 test:
   <<: *default
   database: test-guru_test
 
+
 production:
   <<: *default
   database: testguru_production
-  username: <%= ENV['TESTGURU_DATABASE_USERNAME'] %>
-  password: <%= ENV['TESTGURU_DATABASE_PASSWORD'] %>
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
