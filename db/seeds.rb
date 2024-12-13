@@ -10,11 +10,12 @@ require 'faker'
 
 
 # Удаляем существующие данные 
-User .destroy_all
+User.destroy_all
 Category.destroy_all
 Test.destroy_all
 Question.destroy_all
 Answer.destroy_all
+CompletedTest.destroy_all
 
 # Создаем пользователей
 users = User.create([
@@ -54,8 +55,15 @@ answers = Answer.create!([
   { body: 'When a model learns too little from the training data', correct: false, question_id: questions[2].id }
 ])
 
+completed_tests = CompletedTest.create!(
+    [{ user_id: users[0].id, test_id: tests[0].id, status: true },
+     { user_id: users[1].id, test_id: tests[2].id, status: true },
+     { user_id: users[2].id, test_id: tests[1].id }]
+)
+
 puts "Создано #{User .count} пользователей"
 puts "Создано #{Category.count} категорий"
 puts "Создано #{Test.count} тестов"
 puts "Создано #{Question.count} вопросов"
 puts "Создано #{Answer.count} ответов"
+puts "Создано #{CompletedTest.count} пройденных тестов"
