@@ -33,9 +33,13 @@ categories = Category.create!([
 
 # Создаем тесты
 tests = Test.create!([
-  { title: 'Ruby on Rails Test', level: 2, category_id: categories[0].id, author_id: users[0].id },
-  { title: 'JavaScript Basics Test', level: 1, category_id: categories[1].id, author_id: users[1].id },
-  { title: 'Machine Learning', level: 3, category_id: categories[2].id, author_id: users[2].id }
+  { title: 'Ruby on Rails', level: 2, category_id: categories[0].id, author_id: users[0].id },
+  { title: 'JavaScript', level: 1, category_id: categories[1].id, author_id: users[1].id },
+  { title: 'Machine Learning', level: 3, category_id: categories[2].id, author_id: users[2].id }, 
+  { title: 'Docker', level: 8, category_id: categories[2].id, author_id: users[0].id }, 
+  { title: 'HTML', level: 4, category_id: categories[1].id, author_id: users[0].id }, 
+  { title: 'MySQL', level: 0, category_id: categories[2].id, author_id: users[1].id }, 
+  { title: 'Data Science', level: 5, category_id: categories[0].id, author_id: users[1].id }
 ])
 
 # Создаем вопросы
