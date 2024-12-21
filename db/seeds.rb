@@ -10,15 +10,17 @@ require 'faker'
 
 
 # Удаляем существующие данные 
-User.destroy_all
-Category.destroy_all
-Test.destroy_all
-Question.destroy_all
-Answer.destroy_all
 CompletedTest.destroy_all
+Answer.destroy_all
+Question.destroy_all
+Test.destroy_all
+Category.destroy_all
+User.destroy_all
+
+
 
 # Создаем пользователей
-users = User.create([
+users = User.create!([
   { name: Faker::Name.first_name, email: Faker::Internet.email },
   { name: Faker::Name.first_name, email: Faker::Internet.email },
   { name: Faker::Name.first_name, email: Faker::Internet.email }

@@ -6,4 +6,11 @@ class Answer < ApplicationRecord
 
   scope :correct_answers, -> { where(correct: true) }
 
+  validate :validate_answers
+
+  private
+
+  def validate_answers
+    errors.add("У одного Вопроса может быть от 1-го до 4-х ответов") if question.answers.count > 3
+  end
 end
