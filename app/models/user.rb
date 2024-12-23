@@ -1,8 +1,13 @@
 class User < ApplicationRecord
 
+  has_many :completed_tests
+  has_many :tests, through: :completed_tests
+  has_many :created_tests, class_name: 'Test', foreign_key: "author_id"
+
+  validates :email, presence: true
+
+
   def tests_by_level(level)
-    Test.joins("JOIN completed_tests ON completed_tests.test_id = tests.id")
-        .where(completed_tests: { user_id: self.id })
-        .where(tests: { level: level })
+    tests.by_level(level)
   end
 end

@@ -10,15 +10,17 @@ require 'faker'
 
 
 # Удаляем существующие данные 
-User.destroy_all
-Category.destroy_all
-Test.destroy_all
-Question.destroy_all
-Answer.destroy_all
 CompletedTest.destroy_all
+Answer.destroy_all
+Question.destroy_all
+Test.destroy_all
+Category.destroy_all
+User.destroy_all
+
+
 
 # Создаем пользователей
-users = User.create([
+users = User.create!([
   { name: Faker::Name.first_name, email: Faker::Internet.email },
   { name: Faker::Name.first_name, email: Faker::Internet.email },
   { name: Faker::Name.first_name, email: Faker::Internet.email }
@@ -33,9 +35,13 @@ categories = Category.create!([
 
 # Создаем тесты
 tests = Test.create!([
-  { title: 'Ruby on Rails Test', level: 2, category_id: categories[0].id, author_id: users[0].id },
-  { title: 'JavaScript Basics Test', level: 1, category_id: categories[1].id, author_id: users[1].id },
-  { title: 'Machine Learning', level: 3, category_id: categories[2].id, author_id: users[2].id }
+  { title: 'Ruby on Rails', level: 2, category_id: categories[0].id, author_id: users[0].id },
+  { title: 'JavaScript', level: 1, category_id: categories[1].id, author_id: users[1].id },
+  { title: 'Machine Learning', level: 3, category_id: categories[2].id, author_id: users[2].id }, 
+  { title: 'Docker', level: 8, category_id: categories[2].id, author_id: users[0].id }, 
+  { title: 'HTML', level: 4, category_id: categories[1].id, author_id: users[0].id }, 
+  { title: 'MySQL', level: 0, category_id: categories[2].id, author_id: users[1].id }, 
+  { title: 'Data Science', level: 5, category_id: categories[0].id, author_id: users[1].id }
 ])
 
 # Создаем вопросы
