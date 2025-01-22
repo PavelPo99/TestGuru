@@ -11,6 +11,8 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.10'
 gem 'pg'
 gem 'faker', '~> 3.5', '>= 3.5.1'
 
+gem 'importmap-rails'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
@@ -58,3 +60,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem "hotwire-rails", "~> 0.1.3"

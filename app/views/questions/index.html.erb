@@ -1,11 +1,11 @@
-<h1>Questions for <%= @test.title %></h1>
+<h1>Questions for <%= Test.find(params[:test_id]).title %></h1>
 
-<%= link_to 'New Question', new_test_question_path(@test) %>
+<%= link_to 'New Question', new_test_question_path %>
 <ol>
   <% @questions.each do |question| %>
     <li>
-      <h3><%= link_to question.body, test_question_path(@test, question) %></h3>
-      <%= link_to "Delete", test_question_path(@test, question),   method: :delete, data: { confirm: "Are you sure?" } %>
+      <h3><%= link_to question.body, question_path(question) %></h3>
+      <%= link_to "Delete", question_path(question), data: { turbo_method: :delete,  turbo_confirm: "Are you sure?" } %>
     </li>
   <% end %>
 </ol>
