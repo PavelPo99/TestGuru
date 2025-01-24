@@ -1,0 +1,10 @@
+<h1>Tests:</h1>
+
+<ol>
+  <% @tests.each do |test| %>
+    <li>
+      <a href='tests/<%= test.id %>/questions' rel='nofollow noopener'> <%= test.title %> </a> |
+      contains <%= test.questions.count %> Questions:
+    </li>
+  <% end %>
+</ol>
