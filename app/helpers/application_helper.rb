@@ -1,12 +1,10 @@
 module ApplicationHelper
   
-  PERSONAL_LINK = { "Pavel" =>  'https://github.com/PavelPo99', "Test Guru" => 'https://github.com/PavelPo99/TestGuru' }
-
   def current_year
     Time.current.year
   end
 
-  def github_url(link)
-    PERSONAL_LINK[link]
+  def github_url(author, repo)
+    content_tag(:a, "#{repo}", href: "https://github.com/#{author}/#{repo}", rel: "nofollow noopener")
   end
 end

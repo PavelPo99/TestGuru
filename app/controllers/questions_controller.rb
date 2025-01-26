@@ -10,15 +10,11 @@ class QuestionsController < ApplicationController
     @questions = @test.questions.all
   end
 
-  def show
-  end
-
   def new
     @question = Question.new
   end
 
   def edit
-    @question
   end
 
   def create
@@ -35,7 +31,7 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
 
     if @question.update(question_params)
-      redirect_to @question, notice: 'Question was successfully created.'
+      redirect_to @question, notice: 'Question was successfully update.'
     else
       render :edit
     end
