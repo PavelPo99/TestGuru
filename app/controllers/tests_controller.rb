@@ -6,8 +6,7 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def edit
-  end
+  def edit;  end
 
   def new
     @test = Test.new
@@ -24,7 +23,6 @@ class TestsController < ApplicationController
   end
 
   def update
-
     if @test.update(test_params)
       redirect_to tests_path, notice: 'Test was successfully update.'
     else

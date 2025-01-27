@@ -1,5 +1,3 @@
-<% @model = [@question]%>
-
 <%= render 'form' %>
 
-<br><%=link_to 'Back', tests_path%>
+<br><%=link_to 'Back', test_questions_path(@question.test) %>

@@ -1,9 +1,9 @@
 <h1>Question:</h1>
   
-<h3><%= Question.find(params[:question_id]).body %></h3>
+<h3><%= @answers.body %></h3>
 
 <ol>
-  <%= render(@answers) || "There are no Answers at the moment." %>
+  <%= render(@answers.answers) || "There are no Answers at the moment." %>
 </ol>
 
-<br><%=link_to 'Back', test_questions_path(Question.find(params[:question_id]).test.id)  %>
+<br><%=link_to 'Back', test_questions_path(@answers.test.id)  %>
