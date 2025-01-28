@@ -21,9 +21,9 @@ User.destroy_all
 
 # Создаем пользователей
 users = User.create!([
-  { name: Faker::Name.first_name, email: Faker::Internet.email },
-  { name: Faker::Name.first_name, email: Faker::Internet.email },
-  { name: Faker::Name.first_name, email: Faker::Internet.email }
+  { name: "Михаил", email: "lessie@stokes.test" },
+  { name: "Анастасия", email: "lesley@mcdermott.example" },
+  { name: "Клавдия", email: "carmine@klocko.test" }
 ])
 
 # Создаем категории

@@ -11,7 +11,6 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.10'
 gem 'pg'
 gem 'faker', '~> 3.5', '>= 3.5.1'
 
-gem 'importmap-rails'
 
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -62,3 +61,6 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "hotwire-rails", "~> 0.1.3"
+gem 'importmap-rails'
+gem 'turbo-rails'
+gem 'stimulus-rails'
