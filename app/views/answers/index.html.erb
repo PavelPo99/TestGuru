@@ -1,9 +1,9 @@
 <h1>Question:</h1>
   
-<h3><%= @answers.body %></h3>
+<h3><%= @question.body %></h3>
 
 <ol>
-  <%= render(@answers.answers) || "There are no Answers at the moment." %>
+  <%= render(@question.answers) || "There are no Answers at the moment." %>
 </ol>
 
-<br><%=link_to 'Back', test_questions_path(@answers.test.id)  %>
+<br><%=link_to 'Back', test_questions_path(@question.test.id)  %>

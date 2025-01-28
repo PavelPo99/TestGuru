@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def github_url(author, repo)
-    content_tag(:a, "#{repo}", href: "https://github.com/#{author}/#{repo}", rel: "nofollow noopener")
+    link_to "#{repo}",  "https://github.com/#{author}/#{repo}", rel: "nofollow noopener"
   end
 end
