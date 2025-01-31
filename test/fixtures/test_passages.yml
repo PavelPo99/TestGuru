@@ -2,10 +2,12 @@
 
 one:
   user: one
-  test: 
-  status: false
+  test: one
+  current_question: one
+  correct_question: 1
 
 two:
   user: two
-  test: 
-  status: false
+  test: two
+  current_question: two
+  correct_question: 1

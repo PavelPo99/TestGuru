@@ -10,16 +10,20 @@ class QuestionsController < ApplicationController
   end
 
   def new
-    @question = @test.question.new
+    @question = @test.questions.new
   end
 
-  def edit; end
+  def show
+  end
+
+  def edit
+  end
 
   def create
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to test_questions_path(@question), notice: 'Question was successfully created.'
+      redirect_to test_path(@test), notice: 'Question was successfully created.'
     else
       render :new
     end
@@ -27,7 +31,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_questions_path(@question.test), notice: 'Question was successfully update.'
+      redirect_to test_path(@question.test), notice: 'Question was successfully update.'
     else
       render :edit
     end
@@ -36,7 +40,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
 
-    redirect_to question_path, notice: 'Question was successfully deleted.'
+    redirect_to test_path(@question.test), notice: 'Question was successfully deleted.'
   end
 
 
