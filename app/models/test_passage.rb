@@ -1,12 +1,12 @@
 class TestPassage < ApplicationRecord
 
+  SUCCESS_RATIO = 85
+
   belongs_to :user
   belongs_to :test
   belongs_to :current_question, class_name: "Question", optional: true
 
-  before_validation :before_validation_set_first_question, on: :create
-
-  before_update :next_question
+  before_validation :set_current_question
 
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
@@ -20,20 +20,37 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-  def result_test
-    (((self.correct_question).to_f/(self.test.questions.count).to_f) * 100).round(0)
-  end
 
   def current_question_index
     questions = test.questions
     questions.index(current_question)
   end
 
-  
+  def test_successful?
+    result_test.to_i >= 85
+  end
+
+  def result_test
+    (((self.correct_question).to_f/(self.test.questions.count).to_f) * 100).round(0)
+  end
+
+  def question_any?(params)
+    params.key?("answer_ids")
+  end
+
+
   private
 
-  def before_validation_set_first_question
-    self.current_question = test.questions.first if test.present?
+  def set_current_question
+    self.current_question = next_question
+  end
+
+  def next_question
+    if new_record?
+      test.questions.first
+    else
+      test.questions.order(:id).where("id > ?", current_question.id).first
+    end
   end
 
   def correct_answer?(answer_ids)
@@ -42,9 +59,5 @@ class TestPassage < ApplicationRecord
 
   def correct_answer
     current_question.answers.correct
-  end
-
-  def next_question
-    self.current_question = test.questions.order(:id).where("id > ?", current_question.id).first 
   end
 end

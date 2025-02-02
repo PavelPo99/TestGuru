@@ -1,7 +1,6 @@
 class TestsController < ApplicationController
 
   before_action :find_test, only: %i[ show edit update destroy start ]
-  before_action :set_user, only: %i[ start ]
 
   def index
     @tests = Test.all
@@ -41,8 +40,8 @@ class TestsController < ApplicationController
     redirect_to tests_path, notice: 'Test was successfully deleted.'
   end
 
-  def start
-    @user.tests.push(@test)
+  def start    
+    set_user.tests.push(@test)
     redirect_to @user.test_passage(@test)
   end
 
