@@ -1,9 +1,0 @@
-<h1>Question:</h1>
-  
-<h3><%= @question.body %></h3>
-
-<ol>
-  <%= render(@question.answers) || "There are no Answers at the moment." %>
-</ol>
-
-<br><%=link_to 'Back', test_questions_path(@question.test.id)  %>

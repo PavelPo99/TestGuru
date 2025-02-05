@@ -1,9 +1,9 @@
 <h1>Questions for <%= @test.title %></h1>
 
-<p><%= link_to 'New Question', new_test_question_path %></p>
+<p><%= link_to 'New Question', new_test_question_path(@test) %></p>
 
 <table> 
-  <% if @questions.count != 0 %>
+  <% if @test.questions.count != 0 %>
     <tr>
       <th>Questions</th>
       <th>Answers</th>
@@ -11,7 +11,7 @@
     </tr>
   <% end %>
   
-  <%= render(@questions) || "There are no Questions at the moment." %>
+  <%= render(@test.questions) || "There are no Questions at the moment." %>
   
 </table>
 
