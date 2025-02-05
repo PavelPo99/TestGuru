@@ -27,7 +27,7 @@ class TestPassage < ApplicationRecord
   end
 
   def test_successful?
-    result_test.to_i >= 85
+    result_test.to_i >= SUCCESS_RATIO
   end
 
   def result_test
