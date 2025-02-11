@@ -26,11 +26,10 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_back(default)
-    redirect_to (cookies[:referer] || default)
-    cookies.delete(:referer)
+    redirect_to (cookies.delete(:referer) || default)
   end
 
   def save_location
-    cookies[:referer] = request.url if request.get?  && !logged_in?
+    cookies[:referer] = request.url if request.get?
   end
 end

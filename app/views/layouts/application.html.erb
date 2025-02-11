@@ -12,18 +12,9 @@
   </head>
 
   <body>
-     <% if logged_in? %>
-      <p class="nav user">Welcome, <b><%= current_user.email %></b> <%= link_to 'Guru!', root_path %></p>    
-      
-      <nav><%= link_to 'Выйти', logout_path(session[:session_id]),  data: { turbo_method: :delete,  turbo_confirm: "Are you sure?" }%></nav>
-    <% elsif !current_page?('/login') && !current_page?('/signup') %>  
-      <br><nav>
-        <ul>
-          <li><%= link_to 'Sign up', signup_path %></li>
-          <li><%= link_to 'Sign in', login_path %></li>
-        </ul>
-      </nav>
-    <% end %>
+    <%= render 'layouts/form_nav' %>
+
+    <%= flash_message unless flash.nil? %>
     
     <%= yield %>
     <% console %>

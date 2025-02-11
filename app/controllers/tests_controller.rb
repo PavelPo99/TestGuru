@@ -7,11 +7,9 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def new
     @test = Test.new
@@ -36,6 +34,7 @@ class TestsController < ApplicationController
   end
 
   def destroy
+    @test.test_passages.destroy_all
     @test.destroy
 
     redirect_to tests_path, notice: 'Test was successfully deleted.'
