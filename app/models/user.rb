@@ -1,10 +1,16 @@
 class User < ApplicationRecord
 
-  has_many :test_passages, dependent: :destroy
+  VALID_EMAIL_REGEX = URI::MailTo::EMAIL_REGEXP
+
+  before_save { self.email = email.downcase}
+  
+  has_many :test_passages, dependent: :delete_all
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: 'Test', foreign_key: "author_id"
 
-  validates :email, presence: true
+  validates :email, presence: true,  format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
+
+  has_secure_password
 
 
   def tests_by_level(level)

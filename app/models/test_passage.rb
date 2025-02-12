@@ -20,10 +20,10 @@ class TestPassage < ApplicationRecord
     current_question.nil?
   end
 
-
-  def current_question_index
-    questions = test.questions
-    questions.index(current_question)
+  def current_question_number
+    return test.questions.size if current_question.nil?
+    
+    test.questions.order(:id).index(current_question) + 1
   end
 
   def test_successful?

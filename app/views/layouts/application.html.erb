@@ -12,6 +12,10 @@
   </head>
 
   <body>
+    <%= render 'layouts/form_nav' %>
+
+    <%= flash_message unless flash.nil? %>
+    
     <%= yield %>
     <% console %>
     <br><hr />
