@@ -10,6 +10,7 @@ gem 'rails', '~> 6.1.7', '>= 6.1.7.10'
 
 gem 'pg'
 gem 'faker', '~> 3.5', '>= 3.5.1'
+gem 'dotenv-rails'
 
 
 # Use Puma as the app server
