@@ -1,33 +1,211 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at https://guides.rubyonrails.org/i18n.html.
-
 en:
   hello: "Hello world"
+
+  layouts:
+    application:
+      header: "Test Guru" 
+    admin:
+      header: "Admin Panel | TestGuru"   
+
+  helpers:
+    submit:
+      test:
+        create: "Create test"
+        update: "Update test" 
+      test_passages:
+        next: "Next"   
+      questions:
+    label:
+      test:
+        title: "Title"
+        level: "Level"
+        category_id: "Categoty"  
+      question:
+        body: "Body"   
+      answer:
+        body: 'Body'
+        correct: "Correct"
+    shared:
+      errors:
+        header:
+          one: "%{count} error detected"
+          other: "%{count} errors detected"   
+    button:
+      start_test: "Start"   
+      show: "Show"
+      edit: "Edit"
+      delete: "Delete"
+    link:
+      back: "Back" 
+      new_test: "New test"  
+      new_question: "New question" 
+      log_in: "Log in"
+      sign_up: "Sign up"    
+      about: 'About' 
+      log_out: "Logout"
+      guru: "Guru!"
+    data:
+      are_you_sure: "Are you sure?"   
+    select:
+      prompt: "Select a category"        
+
+  tests:
+    index:
+      header: "Tricky Tests"
+      title: "Title"
+      level: "Level"
+      category: "Categories"
+      author: "Author"
+      num_of_questions: "The number of questions" 
+      action: "Action"
+      no_tests: "There are no Tests at the moment."
+
+  admin:
+    nav: 
+      header: "TestGuru Admin Panel"
+      welcome: "Welcome, %{email} Guru |"    
+    tests:
+      index:
+        header: "Tricky Tests"
+        title: "Title"
+        level: "Level"
+        category: "Categories"
+        author: "Author"
+        num_of_questions: "The number of questions" 
+        action: "Action"
+        no_tests: "There are no Tests at the moment."
+      show:
+        header: "Questions for %{title}"
+        questions: "Questions"
+        answers: "Answers"
+        action: "Action"
+        no_questions: "There are no Questions at the moment."
+      create: 
+        success: "Test was successfully created."      
+      update:
+        success: "Test was successfully update."
+      delete:
+        success: "Test was successfully deleted."
+    questions:
+      show:
+        header: "%{test_title} Question" 
+        question_body: "%{body}"
+        answer: "Answer:"
+        new_answer: "New answer"   
+    answers:
+      show:
+        header: "Answer"   
+        question_body: "%{body}" 
+        answer: "Answer:"
+        answer_body: "%{body}"
+        correct: "Correct:"
+        answer_correct: "%{correct}"
+
+  test_passages:
+    result:
+      header: "Tes %{title} was successfully completed!"  
+    show:
+      header: "Pass the %{title} test"   
+  test_passages_helper:
+    success_rate_message:
+      success_test: "The test was passed successfully"
+      failed_test: "The test failed"  
+      rate: "success rate: "
+
+  tests_helper:
+    create_new_test: "Create New Test"
+    edit_test: "Edit %{test_title} Test"   
+
+  question_helper:
+    create_new_question: "Create New %{question_title} Question" 
+    edit_question: "Edit %{question_title} Question"
+
+  answers_helper:
+    create_new_answer: "Create New Answer"
+    edit_answer: "Edit %{body} Answer"
+
+  tests_mailer:
+    completed_test:
+      subject: "You just completed the TestGuru test!"
+
+  devise:
+    passwords:
+      new:
+        title: "Forgot your password?"
+        instructions: "Enter your email address to receive a password reset link."
+        submit_button: "Send me reset password instructions"
+      edit:
+        title: "Change your password"
+        new_password: "New password"
+        confirm_password: "Confirm new password"
+        submit_button: "Change my password"      
+    confirmations:
+      new:
+        title: "Resend confirmation instructions"
+        email_label: "Email:"
+        submit_button: "Resend confirmation instructions"
+    mailer:
+      confirmation_instructions:
+        welcome: "Welcome, %{email}!"
+        confirm_message: "You can confirm your account email through the link below:"
+        confirm_button: "Confirm my account"
+      email_changed:
+        greeting: "Hello, %{email}!"
+        notify_change: "We're contacting you to notify you that your email is being changed to %{new_email}."
+        notify_changed: "We're contacting you to notify you that your email has been changed to %{new_email}."
+      password_change:
+        greeting: "Hello, %{email}!"
+        notify_change: "We're contacting you to notify you that your password has been changed."
+      reset_password_instructions:
+        greeting: "Hello, %{email}!"
+        request_change: "Someone has requested a link to change your password. You can do this through the link below."
+        change_button: "Change my password"
+        ignore_request: "If you didn't request this, please ignore this email."
+        no_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions:
+        greeting: "Hello, %{email}!"
+        account_locked: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+        unlock_link: "Click the link below to unlock your account:"
+        unlock_button: "Unlock my account"
+    registrations:
+      edit:
+        header: "Edit %{resource_name}"
+        email_label: "Email"
+        waiting_confirmation: "Currently waiting confirmation for: %{email}"
+        password_label: "Password"
+        password_hint: "(leave blank if you don't want to change it)"
+        password_confirmation_label: "Password confirmation"
+        current_password_label: "Current password"
+        current_password_hint: "(we need your current password to confirm your changes)"
+        update_button: "Update"
+        cancel_account_header: "Cancel my account"
+        cancel_account_text: "Unhappy? Cancel my account"
+        back_link: "Back"
+      new:
+        header: "Become a Guru"
+        first_name_label: "First Name"
+        last_name_label: "Last Name"
+        email_label: "Email"
+        email_placeholder: "Enter email"
+        password_label: "Password"
+        password_confirmation_label: "Password confirmation"
+        minimum_password_length: "(minimum %{count} characters)"
+        sign_up_button: "Sign Up"
+        back_link: "Back"
+    sessions:
+      new:
+        header: "Enter the Guru Gates"
+        email_label: "Email"
+        email_placeholder: "Enter email"
+        password_label: "Password"
+        remember_me_label: "Remember me"
+        enter_button: "Enter"
+        back_link: "Back"
+    shared:
+      links:
+        log_in: "Log in"
+        sign_up: "Sign up"
+        forgot_password: "Forgot your password?"
+        confirmation_instructions: "Didn't receive confirmation instructions?"
+        unlock_instructions: "Didn't receive unlock instructions?"
+        sign_in_with: "Sign in with %{provider}"

@@ -5,6 +5,6 @@
   <td><%= test.author.first_name %></td>
   <td><%= test.questions.count %></td>
 
-  <td><%= button_to 'Start', start_test_path(test) if test.questions.count > 0 %></td>
+  <td><%= button_to t('helpers.button.start_test'), start_test_path(test) if test.questions.count > 0 %></td>
 
 </tr>

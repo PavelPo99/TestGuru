@@ -1,18 +1,18 @@
-<h1>Questions for <%= @test.title %></h1>
+<h1><%= t('.header', title: @test.title) %></h1>
 
-<p><%= link_to 'New Question', new_admin_test_question_path(@test) %></p>
+<p><%= link_to t('helpers.link.new_question'), new_admin_test_question_path(@test) %></p>
 
 <table> 
   <% if @test.questions.count != 0 %>
     <tr>
-      <th>Questions</th>
-      <th>Answers</th>
-      <th colspan='3'>Action</th>
+      <th><%= t('.questions') %></th>
+      <th><%= t('.answers') %></th>
+      <th colspan='3'><%= t('.action') %></th>
     </tr>
   <% end %>
   
-  <%= render(@test.questions) || "There are no Questions at the moment." %>
+  <%= render(@test.questions) || t('.no_questions') %>
   
 </table>
 
-<br><%= link_to 'Back', admin_tests_path %>
+<br><%= link_to t('helpers.link.back'), admin_tests_path %>
