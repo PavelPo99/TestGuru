@@ -132,7 +132,6 @@ en:
     passwords:
       new:
         title: "Forgot your password?"
-        instructions: "Enter your email address to receive a password reset link."
         submit_button: "Send me reset password instructions"
       edit:
         title: "Change your password"

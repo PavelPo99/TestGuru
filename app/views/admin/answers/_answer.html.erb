@@ -1,7 +1,7 @@
 <li>
   <%= answer.body %><br>
  
-  <%= button_to t('helpers.button.show'), admin_answer_path(answer) , method: :get %>
-  <%= button_to t('helpers.button.edit'), edit_admin_answer_path(answer) , method: :get %>
+  <%= button_to t('helpers.button.show'), admin_answer_path(answer) , method: :get, params: { lang: params[:lang] }  %>
+  <%= button_to t('helpers.button.edit'), edit_admin_answer_path(answer) , method: :get, params: { lang: params[:lang] }  %>
   <%= button_to t('helpers.button.delete'),  admin_answer_path(answer) , method: :delete, data: {  turbo_confirm: t('helpers.data.are_you_sure') } %>
 </li>

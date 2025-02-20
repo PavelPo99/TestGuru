@@ -5,7 +5,7 @@
   <td><%= test.author.first_name %></td>
   <td><%= test.questions.count %></td>
 
-  <td><%= button_to t('helpers.button.show'), admin_test_path(test), method: :get %></td>
-  <td><%= button_to t('helpers.button.edit'), edit_admin_test_path(test), method: :get %></td>
+  <td><%= button_to t('helpers.button.show'), admin_test_path(test), method: :get, params: { lang: params[:lang] } %></td>
+  <td><%= button_to t('helpers.button.edit'), edit_admin_test_path(test), method: :get, params: { lang: params[:lang] }  %></td>
   <td><%= button_to t('helpers.button.delete'), admin_test_path(test), method: :delete, data: {  turbo_confirm: t('helpers.data.are_you_sure') } %></td>
 </tr>
