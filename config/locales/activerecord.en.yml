@@ -1,0 +1,14 @@
+en:
+  activerecord:
+    models:
+      test: "Test"
+      user: "User" 
+    attributes:
+      test:
+        title: "Title"
+      user:
+        email: "Email"
+        password: "Password"  
+    errors:
+      messages:
+        blank: "can't be blank"

@@ -1,18 +1,18 @@
-<h1>Tests:</h1>
+<h1><%= t('.header') %></h1>
 
 <table>
   <% if @tests.count != 0 %>
     <tr>
-      <th>Title</th>
-      <th>Level</th>
-      <th>Categories</th>
-      <th>Author</th>
-      <th>The number of questions</th>
+      <th><%= t('.title') %></th>
+      <th><%= t('.level') %></th>
+      <th><%= t('.category') %></th>
+      <th><%= t('.author') %></th>
+      <th><%= t('.num_of_questions') %></th>
 
-      <th>Action</th>
+      <th><%= t('.action') %></th>
     </tr>
    <% end %>
   
-  <%= render(@tests) || "There are no Questions at the moment." %>
+  <%= render(@tests) || t('.no_tests') %>
 
 </table>

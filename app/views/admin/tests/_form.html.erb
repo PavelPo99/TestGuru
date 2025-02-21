@@ -14,7 +14,7 @@
 
   <p>
     <%= form.label :category_id %>
-    <%= select(:test, :category_id, Category.all.collect { |p| [ p.title, p.id ] }, { include_blank: "None" }) %>
+    <%= select(:test, :category_id, Category.all.collect { |p| [ p.title, p.id ] }, prompt: true) %>
 
   </p><br> 
 

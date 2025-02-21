@@ -1,8 +1,9 @@
 <div class="nav nav-admin">
-  <span class="nav-admin title">TestGuru Admin Panel</span>
+  <span class="nav-admin title"><%= t('.header') %></span>
 
   <div class="nav-admin user">
-    Welcome, <b class="nav-admin user-email"><%= current_user.email %></b> Guru | <%= link_to 'Logout', destroy_user_session_path,  data: { turbo_method: :delete,  turbo_confirm: "Are you sure?" }%>
+    <%= t('.welcome', email: current_user.email )%> 
+    <%= link_to t('helpers.link.log_out'), destroy_user_session_path,  data: { turbo_method: :delete,  turbo_confirm: t('helpers.data.are_you_sure') }%>
 
   </div>
 </div>

@@ -2,9 +2,9 @@ module TestsHelper
 
   def test_header(test)
     if test.new_record?
-     "Create New Test"
+     t('tests_helper.create_new_test')
     else
-      "Edit #{test.title} Test"
+     t('tests_helper.edit_test', test_title: test.title)
     end 
   end
 end

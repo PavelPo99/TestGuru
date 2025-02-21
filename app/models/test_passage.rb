@@ -17,7 +17,10 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    current_question.nil?
+    if current_question.nil?
+      self.current_question = nil
+      return true
+    end
   end
 
   def current_question_number
