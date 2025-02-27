@@ -1,10 +1,26 @@
-<tr>
-  <td><%= test.title %></td>
-  <td><%= test.level %></td>
-  <td><%= test.category.title %></td>
-  <td><%= test.author.first_name %></td>
-  <td><%= test.questions.count %></td>
-
-  <td><%= button_to t('helpers.button.start_test'), start_test_path(test) if test.questions.count > 0 %></td>
-
-</tr>
+<div class="col">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title"><%= test.title %></h5>
+      <p class="card-text">
+        <strong><%= t('.category') %>:</strong> <%= test.category.title %>
+      </p>
+      <p class="card-text">
+        <strong><%= t('.level') %>:</strong> <%= test.level %>
+      </p>
+      <p class="card-text">
+        <strong><%= t('.author') %>:</strong> <%= test.author.first_name %>
+      </p>
+      <p class="card-text">
+        <strong><%= t('.num_of_questions') %>:</strong> <%= test.questions.count %>
+      </p>
+      <% if test.questions.count > 0 %>
+        <%= button_to t('helpers.button.start_test'), start_test_path(test), method: :post, class: 'btn btn-primary w-100' %>
+      <% else %>
+        <div class="alert alert-warning" role="alert">
+          <%= t('.no_questions') %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

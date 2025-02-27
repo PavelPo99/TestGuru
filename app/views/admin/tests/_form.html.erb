@@ -1,23 +1,24 @@
-<h1><%= test_header(@test) %></h1>
+<h1 class="text-center my-4">
+  <%= test_header(@test) %>
+</h1>
 
-<%= form_with model: [:admin, @test], local: true do |form| %>
+<%= form_with model: [:admin, @test], local: true, class: 'container' do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </p><br> 
+  <div class="mb-3">
+    <%= form.label :level, class: 'form-label' %>
+    <%= form.text_field :level, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= form.label :level %>
-    <%= form.text_field :level %>
-  </p><br> 
+  <div class="mb-3">
+    <%= form.label :category_id, class: 'form-label' %>
+    <%= form.select :category_id, Category.all.collect { |p| [ p.title, p.id ] }, { prompt: true }, class: 'form-select' %>
+  </div>
 
-  <p>
-    <%= form.label :category_id %>
-    <%= select(:test, :category_id, Category.all.collect { |p| [ p.title, p.id ] }, prompt: true) %>
-
-  </p><br> 
-
-
-  <p><%= form.submit %></p>
+  <div class="text-center">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>

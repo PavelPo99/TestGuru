@@ -1,11 +1,19 @@
-<h1><%=  question_header(@question) %></h1>
+<h1 class="text-center my-4">
+  <%=  question_header(@question) %>
+</h1>
 
-<%= form_with model: [:admin, @test, @question], local: true do |form| %>
+<%= form_with model: [:admin, @test, @question], local: true, class: 'container' do |form| %>
+  <div class="mb-3">
+    <%= form.label :body, class: 'form-label' %>
+    <%= form.text_field :body, class: 'form-control' %>
+  </div>
 
-  <p>
-    <%= form.label :body %>
-    <%= form.text_field :body %>
-  </p><br> 
+  <div class="form-check">
+    <%= form.check_box :correct, class: 'form-check-input me-1', type: "checkbox", id: :answer_correct %>
+    <%= form.label :correct, class: 'form-check-label',  for: :answer_correct %>
+  </div>
 
-  <p><%= form.submit %></p>
+  <div class="text-center">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
 <% end %>
