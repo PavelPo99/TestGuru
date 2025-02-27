@@ -11,13 +11,18 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+  <body class="d-flex flex-column min-vh-100">
     <%= render 'admin/nav' %>
-    <%= render 'layouts/form_nav' %>
 
-    <%= flash_message unless flash.nil? %>
-    
-    <%= yield %>
-    <% console %> 
+   <main class="flex-grow-1">
+      <div class="container">
+        <%= flash_message unless flash.nil? %>
+        
+        <%= yield %>
+      </div>
+    </main>
+
+    <% #console %> 
+    <%= render 'shared/footer' %>
   </body>
 </html>

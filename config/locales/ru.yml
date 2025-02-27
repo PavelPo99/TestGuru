@@ -45,37 +45,40 @@ ru:
       about: "О нас"
       log_out: "Выйти"
       guru: "Guru!"
+      logo: "TestGuru"
     data:
       are_you_sure: "Вы уверены?"   
     select:
       prompt: "Выберите категорию"          
 
   tests:
-    index:
-      header: "Доступные тесты"
+    test:
       title: "Название"
       level: "Уровень"
       category: "Категория"
       author: "Автор"
       num_of_questions: "Колличество вопросов" 
-      action: "Действия"
+      no_questions: "Тест в разработке"  
+    index:
+      header: "Tесты"
       no_tests: "На данный момент Тестов нет."
 
   admin:
     nav: 
-      header: "TestGuru панель админа"
+      header: "TestGuru | панель администратора"
       welcome: "Добро пожаловать, %{email} Guru |"
 
-    tests:      
-      index:
-        header: "Доступные тесты" 
+    tests:  
+      test:
         title: "Название"
         level: "Уровень"
         category: "Категория"
         author: "Автор"
         num_of_questions: "Колличество вопросов" 
-        action: "Действия"
-        no_tests: "На данный момент Тестов нет."
+        no_questions: "Тест в разработке"  
+      index:
+        header: "Tесты"
+        no_tests: "На данный момент Тестов нет."    
       show:
         header: "Вопросы %{title}"
         questions: "Вопросы"
@@ -105,7 +108,7 @@ ru:
     
   test_passages:
     result:
-      header: "Тест %{title} успешно завершен!"  
+      header: "Тест %{title} завершен!"  
     show:
       header: "Прохождение теста: %{title}"     
 

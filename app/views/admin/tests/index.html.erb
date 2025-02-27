@@ -1,21 +1,15 @@
-<h1><%= t('.header') %></h1>
+<h1 class="text-center my-4">
+  <%= t('.header') %>
+</h1>
 
-<p><%= link_to t('helpers.link.new_test'), new_admin_test_path(@test) %></p>
 
-<table>
-  <% if @tests.count != 0 %>
-    <tr>
-      <th><%= t('.title') %></th>
-      <th><%= t('.level') %></th>
-      <th><%= t('.category') %></th>
-      <th><%= t('.author') %></th>
-      <th><%= t('.num_of_questions') %></th>
+<p class="text-start my-4">
+  <%= link_to t('helpers.link.new_test'), new_admin_test_path(@test), class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+</p>
 
-      <th colspan='3'><%= t('.action') %></th>
 
-    </tr>
-   <% end %>
-  
-  <%= render(@tests) || t('.no_tests') %>
-
-</table>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <%= render(@tests) || content_tag(:div, t('.no_tests'), class: 'col text-center') %>
+  </div>
+</div>
