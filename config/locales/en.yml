@@ -44,35 +44,38 @@ en:
       about: 'About' 
       log_out: "Logout"
       guru: "Guru!"
+      logo: "TestGuru"
     data:
       are_you_sure: "Are you sure?"   
     select:
       prompt: "Select a category"        
 
   tests:
-    index:
-      header: "Tricky Tests"
+    test:
       title: "Title"
       level: "Level"
       category: "Categories"
       author: "Author"
       num_of_questions: "The number of questions" 
-      action: "Action"
+      no_questions: "A test in development"  
+    index:
+      header: "Tests"
       no_tests: "There are no Tests at the moment."
 
   admin:
     nav: 
-      header: "TestGuru Admin Panel"
+      header: "TestGuru | Admin Panel"
       welcome: "Welcome, %{email} Guru |"    
     tests:
-      index:
-        header: "Tricky Tests"
+      test:
         title: "Title"
         level: "Level"
         category: "Categories"
         author: "Author"
         num_of_questions: "The number of questions" 
-        action: "Action"
+        no_questions: "A test in development"  
+      index:
+        header: "Tests"
         no_tests: "There are no Tests at the moment."
       show:
         header: "Questions for %{title}"
@@ -103,7 +106,7 @@ en:
 
   test_passages:
     result:
-      header: "Tes %{title} was successfully completed!"  
+      header: "Tes %{title} was completed!"  
     show:
       header: "Pass the %{title} test"   
   test_passages_helper:

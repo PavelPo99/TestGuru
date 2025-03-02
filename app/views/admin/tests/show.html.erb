@@ -1,18 +1,13 @@
-<h1><%= t('.header', title: @test.title) %></h1>
+<h1 class="text-center my-4">
+  <%= t('.header', title: @test.title) %>
+</h1>
 
-<p><%= link_to t('helpers.link.new_question'), new_admin_test_question_path(@test) %></p>
+<p class="text-start my-4">
+  <%= link_to t('helpers.link.new_question'), new_admin_test_question_path(@test), class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+</p>
 
-<table> 
-  <% if @test.questions.count != 0 %>
-    <tr>
-      <th><%= t('.questions') %></th>
-      <th><%= t('.answers') %></th>
-      <th colspan='3'><%= t('.action') %></th>
-    </tr>
-  <% end %>
-  
-  <%= render(@test.questions) || t('.no_questions') %>
-  
-</table>
+<%= render(@test.questions) || content_tag(:div, t('.no_questions'), class: 'col text-center') %>
 
-<br><%= link_to t('helpers.link.back'), admin_tests_path %>
+<p class="text-start my-4">
+  <%= link_to t('helpers.link.back'), admin_tests_path, class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+</p>
