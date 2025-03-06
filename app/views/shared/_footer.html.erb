@@ -9,4 +9,15 @@
       <%= link_to t('helpers.link.about'), '/about' %>
     </p>
   </div>
+
+<div class="container">
+  <ul class="nav nav-pills text-right">
+    <li class="nav-item">
+      <%= link_to "Рус", { lang: :ru }, class: "nav-link #{'active' if I18n.locale == :ru}" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "En", { lang: :en }, class: "nav-link #{'active' if I18n.locale == :en}" %>
+    </li>
+  </ul>
+</div>
 </footer>
