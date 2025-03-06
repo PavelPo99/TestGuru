@@ -2,7 +2,7 @@
   <div class="card h-100">
     <li>
         <div class="card-body">
-          <h5 class="card-title"><%= answer.body %></h5>
+          <p class="card-title"><%= answer.body %></p>
 
           <div class="d-grid gap-2 d-md-flex">
           <%= button_to t('helpers.button.show'),admin_answer_path(answer), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary' %>

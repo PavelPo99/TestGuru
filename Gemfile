@@ -42,6 +42,14 @@ gem 'rails-i18n', '~> 6.0'
 gem 'jquery-rails'
 gem 'bootstrap', '~> 5.3.3'
 
+# NETWORKING
+
+gem 'faraday'
+
+# GIST
+
+gem "octokit"
+
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 
