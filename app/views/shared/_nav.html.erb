@@ -1,7 +1,7 @@
 <nav class="navbar navbar-light bg-light">
   <div class="container-md text-light">
       <%= link_to t('helpers.link.logo'), current_user.is_a?(Admin) ? admin_tests_path : root_path, class: 'navbar-brand' %> 
-      <%= link_to 'Gist', admin_gists_index_path, class: 'navbar-brand'%>
+      <%= current_user.is_a?(Admin) if link_to 'Gist', admin_gists_index_path, class: 'navbar-brand'%>
 
     <span class="navbar-text">
       <% unless current_user.is_a?(Admin) %>
