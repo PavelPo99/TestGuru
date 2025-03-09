@@ -45,6 +45,7 @@ en:
       log_out: "Logout"
       guru: "Guru!"
       logo: "TestGuru"
+      go_gist: "Go to Gist"
     data:
       are_you_sure: "Are you sure?"   
     select:
@@ -103,10 +104,17 @@ en:
         answer_body: "%{body}"
         correct: "Correct:"
         answer_correct: "%{correct}"
+        gists:
+    index:
+      question: "Вопрос"
+      user: "Пользователь"       
 
   test_passages:
     result:
-      header: "Tes %{title} was completed!"  
+      header: "Tes %{title} was completed!" 
+    gist:
+      success: "Gist was succesfully created!"
+      failure: "An error occured while saving gist" 
     show:
       header: "Pass the %{title} test"   
   test_passages_helper:
@@ -130,6 +138,13 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  services:  
+    gist:
+      description: "A question about %{test_title} from TestGuru"
+
+  sessions_controller:
+    welcome: "Hello %{name}!"          
 
   devise:
     passwords:

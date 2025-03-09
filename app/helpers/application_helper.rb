@@ -17,7 +17,7 @@ module ApplicationHelper
                     else 'alert-info'
       end
 
-      content_tag :div,sanitize(message), class: "alert #{alert_class} my-4"
+      content_tag :div, sanitize(message), class: "alert #{alert_class} my-4"
     end.compact)
   end
 

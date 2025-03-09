@@ -2,6 +2,10 @@
   <%= t('.header', title: @test_passage.test.title) %> <%= @test_passage.current_question_number %> / <%= @test_passage.test.questions.count %>
 </h1>
 
+<p class="lead text-left mb-4">
+  <%= button_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post, class: 'btn btn-secondary' %>
+</p>
+
 <p class="lead text-center mb-4">
   <%= @test_passage.current_question.body %>
 </p>

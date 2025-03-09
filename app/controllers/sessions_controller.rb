@@ -2,6 +2,6 @@ class SessionsController < Devise::SessionsController
 
   def create
     super
-    flash[:notice] = "Привет, #{resource.first_name}!"
+    flash[:notice] = t('sessions_controller.welcome', name: resource.first_name || resource.email )
   end
 end
