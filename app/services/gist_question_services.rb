@@ -9,14 +9,14 @@ class GistQuestionServices
     @question = test_passage.current_question
     @test = @question.test
     @user = user
-    @client = client #|| default_client
+    @client = client || default_client
   end
 
   def call
     gist = @client.create_gist(gist_params)
 
     if gist.html_url.present?
-      GistsController.new.create(question: @question.id, gist_url: gist.html_url, user: @user.id)
+      save_gist_in_db(question: @question.id, gist_url: gist.html_url, user: @user.id)
         
       GistResult.new(true, gist.html_url)
     else
@@ -26,6 +26,14 @@ class GistQuestionServices
 
 
   private
+
+  def save_gist_in_db(question:, gist_url:, user:)
+    Gist.create!(
+      question_id: question,
+      gist_url: gist_url, 
+      user_id: user
+    )
+  end
 
   def gist_params
     {

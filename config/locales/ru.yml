@@ -109,16 +109,19 @@ ru:
     gists:
       index:
         question: "Вопрос"
-        user: "Пользователь"    
+        user: "Пользователь"   
+
+  gists:
+    create:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"            
     
   test_passages:
     result:
       header: "Тест %{title} завершен!"  
-    gist:
-      success: "Gist успешно сохранен!"
-      failure: "Во время сохранения gist произошла ошибка"  
     show:
-      header: "Прохождение теста: %{title}"     
+      header: "Прохождение теста: %{title}"  
+      save_gist: "Сохранить вопрос в Gist"   
 
   test_passages_helper:
     success_rate_message:

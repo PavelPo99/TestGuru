@@ -107,16 +107,20 @@ en:
         gists:
     index:
       question: "Вопрос"
-      user: "Пользователь"       
+      user: "Пользователь"   
+
+  gist_controller:
+    create:
+      success: "Gist was succesfully created!"
+      failure: "An error occured while saving gist"         
 
   test_passages:
     result:
       header: "Tes %{title} was completed!" 
-    gist:
-      success: "Gist was succesfully created!"
-      failure: "An error occured while saving gist" 
     show:
-      header: "Pass the %{title} test"   
+      header: "Pass the %{title} test"  
+      save_gist: "Save Question in Gist"   
+
   test_passages_helper:
     success_rate_message:
       success_test: "The test was passed successfully"
