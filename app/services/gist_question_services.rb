@@ -16,7 +16,7 @@ class GistQuestionServices
     gist = @client.create_gist(gist_params)
 
     if gist.html_url.present?
-      save_gist_in_db(question: @question.id, gist_url: gist.html_url, user: @user.id)
+      save_gist_in_db!(question: @question.id, gist_url: gist.html_url, user: @user.id)
         
       GistResult.new(true, gist.html_url)
     else
@@ -27,7 +27,7 @@ class GistQuestionServices
 
   private
 
-  def save_gist_in_db(question:, gist_url:, user:)
+  def save_gist_in_db!(question:, gist_url:, user:)
     Gist.create!(
       question_id: question,
       gist_url: gist_url, 

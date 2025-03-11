@@ -24,8 +24,7 @@ class TestPassage < ApplicationRecord
   end
 
   def current_question_number
-    question_size = test.questions.size 
-    return question_size if current_question.nil?
+    return test.questions.size if current_question.nil?
     
     test.questions.order(:id).index(current_question) + 1
   end
