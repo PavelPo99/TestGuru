@@ -46,6 +46,7 @@ ru:
       log_out: "Выйти"
       guru: "Guru!"
       logo: "TestGuru"
+      go_gist: "Перейти к Gist"
     data:
       are_you_sure: "Вы уверены?"   
     select:
@@ -105,12 +106,22 @@ ru:
         answer_body: "%{body}"
         correct: "Статус:"
         answer_correct: "%{correct}"
+    gists:
+      index:
+        question: "Вопрос"
+        user: "Пользователь"   
+
+  gists:
+    create:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"            
     
   test_passages:
     result:
       header: "Тест %{title} завершен!"  
     show:
-      header: "Прохождение теста: %{title}"     
+      header: "Прохождение теста: %{title}"  
+      save_gist: "Сохранить вопрос в Gist"   
 
   test_passages_helper:
     success_rate_message:
@@ -133,6 +144,13 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TestGuru!"    
+
+  services:  
+    gist:
+      description: "Вопрос %{test_title} для TestGuru"     
+
+  sessions_controller:
+    welcome: "Привет %{name}!"     
 
   devise:
     passwords:

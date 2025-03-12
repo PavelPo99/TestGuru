@@ -17,7 +17,11 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :gists, only: :create 
+
   namespace :admin do
+    get 'gists/index'
+
     resources :tests do
       resources :questions, shallow: true, except: :index do 
         resources :answers, shallow: true, except: :index

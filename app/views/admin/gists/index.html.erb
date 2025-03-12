@@ -1,0 +1,22 @@
+<h1 class="text-left my-4">
+  Gists
+</h1>
+
+<div class="row">
+  <table class="table table-hover table-striped">
+      <thead>
+      <tr>
+        <th scope="col"><%= t('.question') %></th>
+        <th scope="col">Gist URL</th>
+        <th scope="col"><%= t('.user') %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render(@gists) %>
+    </tbody>
+  </table>
+</div>  
+
+<p class="text-start my-4">
+  <%= link_to t('helpers.link.back'), :back, class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+</p>
