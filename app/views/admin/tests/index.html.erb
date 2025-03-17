@@ -2,6 +2,11 @@
   <%= t('.header') %>
 </h1>
 
+<p class="sort-by-title pointer">
+  sort
+  <%= octicon 'arrow-up', class: 'text-success' %>
+  <%= octicon 'arrow-down', class: 'text-success' %>
+</p>
 
 <p class="text-start my-4">
   <%= link_to t('helpers.link.new_test'), new_admin_test_path(@test), class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
