@@ -20,6 +20,8 @@ gem "faker", "~> 3.5", ">= 3.5.1"
 gem "devise", "~> 4.9"
 gem "octokit"
 
+gem "octicons_helper"
+
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
   gem "brakeman", require: false
