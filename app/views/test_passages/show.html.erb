@@ -1,0 +1,28 @@
+<h1 class="text-center my-4">
+  <%= t('.header', title: @test_passage.test.title) %> <%= @test_passage.current_question_number %> / <%= @test_passage.test.questions.count %>
+</h1>
+
+<p class="lead text-left mb-4">
+  <%= button_to t('.save_gist'), gists_path(test_passage_id: @test_passage), method: :post, class: 'btn btn-secondary' %>
+</p>
+
+<p class="lead text-center mb-4">
+  <%= @test_passage.current_question.body %>
+</p>
+
+<%= form_with url: test_passage_path(@test_passage), method: :put, local: true, class: 'mb-4' do |form| %>
+  <div class="list-group">
+    <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
+      <div class="list-group-item">
+        <div class="form-check">
+          <%= b.check_box class: 'form-check-input', id: "answer_ids_#{b.object.id}" %>
+          <%= b.label class: 'form-check-label' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="text-center mt-4">
+    <%= form.submit t('helpers.submit.test_passages.next'), class: 'btn btn-primary btn-lg' %>
+  </div>
+<% end %>

@@ -1,0 +1,11 @@
+<div class="container">
+  <h1 class="text-center my-4">
+    <%= t('.header', title: @test_passage.test.title) %>
+  </h1>
+
+  <%= success_rate_message(@test_passage) %>
+
+  <p class="text-start my-4">
+    <%= link_to t('helpers.link.back'), tests_path, class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+  </p>
+</div>

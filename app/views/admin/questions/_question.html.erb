@@ -1,0 +1,20 @@
+<div class="col my-4">
+  <div class="card h-100">
+    <div class="card-body">
+      <h5 class="card-title text-center"><%= question.body %></h5>
+        <p class="card-text">
+          <ol>
+            <% question.answers.each do |a| %>
+              <li><%= a.body%></li>
+            <% end %>
+          </ol>
+        </p>
+
+        <div class="d-grid gap-2 d-md-flex">
+        <%= button_to t('helpers.button.show'), admin_question_path(question), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary' %>
+        <%= button_to t('helpers.button.edit'), edit_admin_question_path(question), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary'  %>
+        <%= button_to t('helpers.button.delete'),  admin_question_path(question), method: :delete, data: {  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-primary' %>
+        </div>
+    </div>
+  </div>
+</div>

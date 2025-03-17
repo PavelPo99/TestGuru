@@ -1,0 +1,26 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  
+  
+  host: localhost 
+
+development:
+  <<: *default
+  database: test-guru_development
+
+
+test:
+  <<: *default
+  database: test-guru_test
+
+
+production:
+  <<: *default
+  database: testguru_production
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  

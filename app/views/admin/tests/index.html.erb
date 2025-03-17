@@ -1,0 +1,15 @@
+<h1 class="text-center my-4">
+  <%= t('.header') %>
+</h1>
+
+
+<p class="text-start my-4">
+  <%= link_to t('helpers.link.new_test'), new_admin_test_path(@test), class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
+</p>
+
+
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+    <%= render(@tests) || content_tag(:div, t('.no_tests'), class: 'col text-center') %>
+  </div>
+</div>

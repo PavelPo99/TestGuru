@@ -1,0 +1,24 @@
+<h1 class="text-center my-4">
+  <%= test_header(@test) %>
+</h1>
+
+<%= form_with model: [:admin, @test], local: true, class: 'container' do |form| %>
+  <div class="mb-3">
+    <%= form.label :title, class: 'form-label' %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :level, class: 'form-label' %>
+    <%= form.text_field :level, class: 'form-control' %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :category_id, class: 'form-label' %>
+    <%= form.select :category_id, Category.all.collect { |p| [ p.title, p.id ] }, { prompt: true }, class: 'form-select' %>
+  </div>
+
+  <div class="text-center">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>

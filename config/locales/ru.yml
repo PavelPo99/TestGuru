@@ -1,0 +1,234 @@
+ru:
+  hello: "Привет мир"
+
+  layouts:
+    application:
+      header: "Test Guru" 
+    admin:
+      header: "Admin Panel | TestGuru"   
+
+  helpers:
+    submit:
+      test:
+        create: "Добавить тест"
+        update: "Обновить тест"
+      test_passages:
+        next: "Следующий вопрос"  
+    label:
+      test:
+        title: "Название"
+        level: "Уровень"
+        category_id: "Категория" 
+      question:
+        body: "Текст"   
+      answer:
+        body: "Текст"
+        correct: "Статус"      
+    shared:
+      errors:
+        header:
+          few: "Обнаружено %{count} ошибки"
+          many: "Обнаружено %{count} ошибок"
+          one: "Обнаружена %{count} ошибка"
+          other: "Обнаружено %{count} ошибки"   
+    button:
+      start_test: "Старт" 
+      show: "Просмотреть"
+      edit: "Редактировать"
+      delete: "Удалить"
+    link:
+      back: "Назад" 
+      new_test: "Добавить тест"   
+      new_question: "Добавить вопрос"   
+      log_in: "Войти"
+      sign_up: "Зарегистрироваться"
+      about: "О нас"
+      log_out: "Выйти"
+      guru: "Guru!"
+      logo: "TestGuru"
+      go_gist: "Перейти к Gist"
+    data:
+      are_you_sure: "Вы уверены?"   
+    select:
+      prompt: "Выберите категорию"          
+
+  tests:
+    test:
+      title: "Название"
+      level: "Уровень"
+      category: "Категория"
+      author: "Автор"
+      num_of_questions: "Колличество вопросов" 
+      no_questions: "Тест в разработке"  
+    index:
+      header: "Tесты"
+      no_tests: "На данный момент Тестов нет."
+
+  admin:
+    nav: 
+      header: "TestGuru | панель администратора"
+      welcome: "Добро пожаловать, %{email} Guru |"
+
+    tests:  
+      test:
+        title: "Название"
+        level: "Уровень"
+        category: "Категория"
+        author: "Автор"
+        num_of_questions: "Колличество вопросов" 
+        no_questions: "Тест в разработке"  
+      index:
+        header: "Tесты"
+        no_tests: "На данный момент Тестов нет."    
+      show:
+        header: "Вопросы %{title}"
+        questions: "Вопросы"
+        answers: "Ответы"
+        action: "Действия"
+        no_questions: "На данный момент Вопросов нет"
+      create: 
+        success: "Тест успешно создан."      
+      update:
+        success: "Тест обнавлен успешно."
+      delete:
+        success: "Тест успешно удален."       
+    questions:
+      show: 
+        header: "%{test_title} вопрос"  
+        question_body: "%{body}"
+        answer: "Ответ:"
+        new_answer: "Добавить ответ"   
+    answers:
+      show:
+        header: "Ответ"   
+        question_body: "%{body}" 
+        answer: "Ответ:"
+        answer_body: "%{body}"
+        correct: "Статус:"
+        answer_correct: "%{correct}"
+    gists:
+      index:
+        question: "Вопрос"
+        user: "Пользователь"   
+
+  gists:
+    create:
+      success: "Gist успешно сохранен!"
+      failure: "Во время сохранения gist произошла ошибка"            
+    
+  test_passages:
+    result:
+      header: "Тест %{title} завершен!"  
+    show:
+      header: "Прохождение теста: %{title}"  
+      save_gist: "Сохранить вопрос в Gist"   
+
+  test_passages_helper:
+    success_rate_message:
+      success_test: "Тест пройден успешно"
+      failed_test: "Тест не пройден"
+      rate: "показатель успеха: "
+
+  tests_helper:
+    create_new_test: "Создать тест"
+    edit_test: "Редактировать %{test_title} тест"    
+
+  question_helper:
+    create_new_question: "Добавить вопрос в %{question_title}" 
+    edit_question: "Редактировать %{question_title} Вопрос"
+
+  answers_helper:
+    create_new_answer: "Добавить ответ"
+    edit_answer: "Редактировать %{body} ответ"  
+
+  tests_mailer:
+    completed_test:
+      subject: "Вы успешно завершили тест на TestGuru!"    
+
+  services:  
+    gist:
+      description: "Вопрос %{test_title} для TestGuru"     
+
+  sessions_controller:
+    welcome: "Привет %{name}!"     
+
+  devise:
+    passwords:
+      new:
+        title: "Забыли пароль?"
+        submit_button: "Отправить инструкции по сбросу пароля"
+      edit:
+        title: "Изменить пароль"
+        new_password: "Новый пароль"
+        confirm_password: "Подтвердите новый пароль"        
+        submit_button: "Изменить пароль"  
+    confirmations:
+      new:
+        title: "Отправить инструкции повторно"
+        email_label: "Почтовый адрес:"
+        submit_button: "Отправить инструкции повторно"
+    mailer:
+      confirmation_instructions:
+        welcome: "Добро пожаловать, %{email}!"
+        confirm_message: "Вы можете подтвердить свой адрес электронной почты, перейдя по ссылке ниже:"
+        confirm_button: "Подтвердить мой аккаунт"
+      email_changed:
+        greeting: "Здравствуйте, %{email}!"
+        notify_change: "Мы уведомляем вас, что ваш электронный адрес изменяется на %{new_email}."
+        notify_changed: "Мы уведомляем вас, что ваш электронный адрес был изменен на %{new_email}."
+      password_change:
+        greeting: "Здравствуйте, %{email}!"
+        notify_change: "Мы уведомляем вас, что ваш пароль был изменен."
+      reset_password_instructions:
+        greeting: "Здравствуйте, %{email}!"
+        request_change: "Кто-то запросил ссылку для смены вашего пароля. Вы можете сделать это, перейдя по ссылке ниже."
+        change_button: "Сменить мой пароль"
+        ignore_request: "Если вы не запрашивали это, просто проигнорируйте это письмо."
+        no_change: "Ваш пароль не изменится, пока вы не перейдёте по ссылке выше и не создадите новый."
+      unlock_instructions:
+        greeting: "Здравствуйте, %{email}!"
+        account_locked: "Ваш аккаунт был заблокирован из-за чрезмерного количества неудачных попыток входа."
+        unlock_link: "Нажмите на ссылку ниже, чтобы разблокировать свой аккаунт:"
+        unlock_button: "Разблокировать мой аккаунт"
+    registrations:
+      edit:
+        header: "Редактировать %{resource_name}"
+        email_label: "Электронная почта"
+        waiting_confirmation: "В данный момент ожидается подтверждение для: %{email}"
+        password_label: "Пароль"
+        password_hint: "(оставьте пустым, если не хотите менять)"
+        password_confirmation_label: "Подтверждение пароля"
+        current_password_label: "Текущий пароль"
+        current_password_hint: "(нам нужен ваш текущий пароль для подтверждения изменений)"
+        update_button: "Обновить"
+        cancel_account_header: "Отменить мой аккаунт"
+        cancel_account_text: "Не довольны? Отменить мой аккаунт"
+        back_link: "Назад"
+      new:
+        header: "Станьте Guru"
+        first_name_label: "Имя"
+        last_name_label: "Фамилия"
+        email_label: "Электронная почта"
+        email_placeholder: "Введите электронную почту"
+        password_label: "Пароль"
+        password_confirmation_label: "Подтверждение пароля"
+        minimum_password_length: "(минимум %{count} символов)"
+        sign_up_button: "Зарегистрироваться"
+        back_link: "Назад"
+    sessions:
+      new:
+        header: "Войдите в Test Guru"
+        email_label: "Электронная почта"
+        email_placeholder: "Введите электронную почту"
+        password_label: "Пароль"
+        remember_me_label: "Запомнить меня"
+        enter_button: "Войти"
+        back_link: "Назад"
+    shared:
+      links:
+        log_in: "Войти"
+        sign_up: "Зарегистрироваться"
+        forgot_password: "Забыли пароль?"
+        confirmation_instructions: "Не получили инструкции для подтверждения?"
+        unlock_instructions: "Не получили инструкции для разблокировки?"
+        sign_in_with: "Войти с помощью %{provider}"

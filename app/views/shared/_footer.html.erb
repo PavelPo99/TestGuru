@@ -1,0 +1,23 @@
+<footer class="bg-light py-4 mt-4">
+  <div class="text-center darken-grey-text">
+    <p>
+      © <%= current_year %>
+      The <%= github_url("PavelPo99", 'TestGuru') %>
+      by Pavel
+    </p>
+    <p>
+      <%= link_to t('helpers.link.about'), '/about' %>
+    </p>
+  </div>
+
+<div class="container">
+  <ul class="nav nav-pills text-right">
+    <li class="nav-item">
+      <%= link_to "Рус", { lang: :ru }, class: "nav-link #{'active' if I18n.locale == :ru}" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "En", { lang: :en }, class: "nav-link #{'active' if I18n.locale == :en}" %>
+    </li>
+  </ul>
+</div>
+</footer>
