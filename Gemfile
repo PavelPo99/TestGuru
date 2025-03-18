@@ -1,10 +1,10 @@
 source "https://rubygems.org"
 
 # Измените версию Rails на явную 7.0.x
-gem "rails", "~> 7.0", ">= 7.0.8"
+gem "rails", "~> 8.0"
 
 # Используйте совместимую версию rails-i18n для Rails 7
-gem "rails-i18n", "~> 7.0"
+gem "rails-i18n", "~> 8.0"
 
 # Остальные гемы остаются без изменений
 gem "sprockets-rails"
