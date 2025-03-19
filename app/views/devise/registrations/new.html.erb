@@ -18,12 +18,12 @@
               <% if @minimum_password_length %>
               <em><%= t('.minimum_password_length', count: @minimum_password_length) %></em>
               <% end %><br />
-              <%= f.password_field :password, autocomplete: "new-password", class: 'form-control' %>
+              <%= f.password_field :password, autocomplete: "new-password", class: 'form-control border-2' %>
             </p>
 
             <p>
               <%= f.label :password_confirmation, t('.password_confirmation_label') %><br />
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control border-2' %>
               <span id='message'></span>
             </p>
 

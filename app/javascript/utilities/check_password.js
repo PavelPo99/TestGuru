@@ -17,6 +17,28 @@ document.addEventListener('turbo:load', function() {
 
       password.addEventListener('input', check)
       confirmation.addEventListener('input', check)
+    
+
+      const updateBorder = () => {
+        const confirmNotEmpty = confirmation.value.length > 0;
+        const isMatch = password.value === confirmation.value;
+        
+        confirmation.classList.remove('border-danger', 'border-success');
+        password.classList.remove('border-danger', 'border-success');
+        
+        if (confirmNotEmpty) {
+          if (isMatch) {
+            confirmation.classList.add('border-success');
+            password.classList.add('border-success');
+          } else {
+            confirmation.classList.add('border-danger');
+            password.classList.add('border-danger');
+          }
+        }
+      };
+
+      password.addEventListener('input', updateBorder);
+      confirmation.addEventListener('input', updateBorder);
     }
   }
 })
