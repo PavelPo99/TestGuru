@@ -24,6 +24,7 @@
             <p>
               <%= f.label :password_confirmation, t('.password_confirmation_label') %><br />
               <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control' %>
+              <span id='message'></span>
             </p>
 
             <p>

@@ -3,9 +3,9 @@
 </h1>
 
 <p class="sort-by-title pointer">
-  sort
-  <%= octicon 'arrow-up', class: 'text-success' %>
-  <%= octicon 'arrow-down', class: 'text-success' %>
+  <%= t('.sort_by_title') %>
+  <%= octicon 'arrow-up', class: 'text-success hide' %>
+  <%= octicon 'arrow-down', class: 'text-success hide' %>
 </p>
 
 <p class="text-start my-4">
@@ -13,8 +13,6 @@
 </p>
 
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+<div class="container-rows">
     <%= render(@tests) || content_tag(:div, t('.no_tests'), class: 'col text-center') %>
-  </div>
 </div>

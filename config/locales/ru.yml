@@ -63,6 +63,7 @@ ru:
     index:
       header: "Tесты"
       no_tests: "На данный момент Тестов нет."
+      sort_by_title: "Cортировка по названию"
 
   admin:
     nav: 
@@ -79,7 +80,8 @@ ru:
         no_questions: "Тест в разработке"  
       index:
         header: "Tесты"
-        no_tests: "На данный момент Тестов нет."    
+        no_tests: "На данный момент Тестов нет." 
+        sort_by_title: "Cортировка по названию"   
       show:
         header: "Вопросы %{title}"
         questions: "Вопросы"

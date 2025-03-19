@@ -1,7 +1,7 @@
-<div class="col">
+<div class="col-card">
   <div class="card h-100">
     <div class="card-body">
-      <h5 class="card-title"><%= test.title %></h5>
+      <h5 class="card-title text-center"><%= test.title %></h5>
       <p class="card-text">
         <strong><%= t('.category') %>:</strong> <%= test.category.title %>
       </p>
@@ -15,7 +15,7 @@
         <strong><%= t('.num_of_questions') %>:</strong> <%= test.questions.count %>
       </p>     
         <div class="d-grid gap-2 col mx-auto">
-        <%= button_to t('helpers.button.show'), admin_test_path(test), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary w-100' %>
+        <%= button_to t('helpers.button.show'), admin_test_path(test), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary w-100', as: "style" %>
         <%= button_to t('helpers.button.edit'), edit_admin_test_path(test), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary w-100'  %>
         <%= button_to t('helpers.button.delete'), admin_test_path(test), method: :delete, data: {  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-primary w-100' %>
         </div>
