@@ -1,7 +1,11 @@
 <h1 class="text-center my-4"><%= t('.header') %></h1>
 
-<div class="container">
-  <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-    <%= render(@tests) || content_tag(:div, t('.no_tests'), class: 'col text-center') %>
-  </div>
+<p class="sort-by-title pointer">
+  <%= t('.sort_by_title') %> 
+  <%= octicon 'arrow-up', class: 'text-success hide' %>
+  <%= octicon 'arrow-down', class: 'text-success hide' %>
+</p>
+
+<div class="container-rows">
+  <%= render(@tests) || content_tag(:div, t('.no_tests'), class: 'col text-center') %>
 </div>

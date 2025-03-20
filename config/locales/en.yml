@@ -62,6 +62,7 @@ en:
     index:
       header: "Tests"
       no_tests: "There are no Tests at the moment."
+      sort_by_title: "Sort by title"
 
   admin:
     nav: 
@@ -78,6 +79,7 @@ en:
       index:
         header: "Tests"
         no_tests: "There are no Tests at the moment."
+        sort_by_title: "Sort by title"
       show:
         header: "Questions for %{title}"
         questions: "Questions"
