@@ -4,13 +4,14 @@ gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 
 gem "rails-i18n", "~> 7.0"
 
-# gem "sprockets-rails"
+gem "sprockets-rails"
 gem "pg", "~> 1.5", ">= 1.5.9"
 gem "puma", ">= 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
 gem "stimulus-rails"
-# gem "cssbundling-rails"
+gem "cssbundling-rails"
+gem "jsbundling-rails"
 gem "jbuilder"
 gem "bootsnap", require: false
 gem "faker", "~> 3.5", ">= 3.5.1"

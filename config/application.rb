@@ -19,6 +19,5 @@ module TestGuru20
     config.autoload_lib(ignore: %w[assets tasks])
 
     config.autoload_paths << "#{Rails.root}/lib/clients"
-    config.assets.enabled = false
   end
 end
