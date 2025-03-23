@@ -2,17 +2,30 @@
   <%= t('.header') %>
 </h1>
 
-<p class="sort-by-title pointer">
-  <%= t('.sort_by_title') %>
-  <%= octicon 'arrow-up', class: 'text-success hide' %>
-  <%= octicon 'arrow-down', class: 'text-success hide' %>
-</p>
+<%= render 'shared/errors', resource: @test %>
 
 <p class="text-start my-4">
   <%= link_to t('helpers.link.new_test'), new_admin_test_path(@test), class: "link-dark link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover" %>
 </p>
 
+<table class="table table-hover table-striped">
+  <thead>
+    <tr>
+      <th scope="col" class="sort-by-title pointer">
+        title
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>
+      </th>
+      <th scope="col">category</th>
+      <th scope="col">Level</th>
+      <th scope="col">author</th>
 
-<div class="container-rows">
+      <th scope="col">num_of_questions</th>
+      <th scope="col" colspan="4" class="text-center">Action</th>
+    </tr>
+  </thead>
+
+  <tbody class="container-rows">
     <%= render(@tests) || content_tag(:div, t('.no_tests'), class: 'col text-center') %>
-</div>
+  </tbody>
+</table>

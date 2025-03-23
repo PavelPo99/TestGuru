@@ -1,24 +1,32 @@
-<div class="col-card">
-  <div class="card h-100">
-    <div class="card-body">
-      <h5 class="card-title text-center"><%= test.title %></h5>
-      <p class="card-text">
-        <strong><%= t('.category') %>:</strong> <%= test.category.title %>
-      </p>
-      <p class="card-text">
-        <strong><%= t('.level') %>:</strong> <%= test.level %>
-      </p>
-      <p class="card-text">
-        <strong><%= t('.author') %>:</strong> <%= test.author.first_name %>
-      </p>
-      <p class="card-text">
-        <strong><%= t('.num_of_questions') %>:</strong> <%= test.questions.count %>
-      </p>     
-        <div class="d-grid gap-2 col mx-auto">
-        <%= button_to t('helpers.button.show'), admin_test_path(test), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary w-100', as: "style" %>
-        <%= button_to t('helpers.button.edit'), edit_admin_test_path(test), method: :get, params: { lang: params[:lang] }, class: 'btn btn-primary w-100'  %>
-        <%= button_to t('helpers.button.delete'), admin_test_path(test), method: :delete, data: {  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-primary w-100' %>
-        </div>
-    </div>
-  </div>
-</div>
+
+
+
+
+<tr class="col-card">
+  <td class="aling-middle">
+    <%= content_tag :span, test.title, class: "test-title", data: { test_id: test.id } %>
+    <%= render 'form_inline', test: test == @test? @test : test %>
+  </td>
+  <td class="aling-middle"><%= test.category.title %></td>
+  <td class="aling-middle"><%= test.level %></td>
+  <td class="aling-middle"><%= test.author.first_name %></td>
+  <td class="aling-middle"><%= test.questions.count %></td>
+
+  <td class="aling-middle">  
+    <%= button_to t('helpers.button.show'), admin_test_path(test), method: :get, params: { lang: params[:lang] }, class: 'btn btn-outline-primary w-80', as: "style" %>
+  </td>
+  <td class="aling-middle">  
+    <%= button_to t('helpers.button.edit'), 
+                  edit_admin_test_path(test), 
+                  method: :get, 
+                  params: { lang: params[:lang] }, 
+                  class: 'btn btn-outline-primary w-80 form-inline-link',
+                  data: { test_id: test.id}  %>
+  </td>
+  <td class="aling-middle">  
+    <%= button_to t('helpers.button.delete'), admin_test_path(test), method: :delete, data: {  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-outline-primary w-80' %>
+  </td>  
+</tr>
+
+
+
