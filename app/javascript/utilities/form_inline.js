@@ -1,3 +1,5 @@
+console.log('ok2')
+
 document.addEventListener('turbo:load', function() {
   // var controls = document.querySelectorAll('.form-inline-link')
 

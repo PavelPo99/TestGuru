@@ -1,7 +1,3 @@
-
-
-
-
 <tr class="col-card">
   <td class="aling-middle">
     <%= content_tag :span, test.title, class: "test-title", data: { test_id: test.id } %>
@@ -24,9 +20,6 @@
                   data: { test_id: test.id}  %>
   </td>
   <td class="aling-middle">  
-    <%= button_to t('helpers.button.delete'), admin_test_path(test), method: :delete, data: {  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-outline-primary w-80' %>
+    <%= button_to t('helpers.button.delete'), admin_test_path(test), data: { turbo_method: :delete,  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-outline-primary w-80' %>
   </td>  
 </tr>
-
-
-

@@ -1,3 +1,6 @@
+console.log('ok')
+
+
 document.addEventListener('turbo:load', function() {
   const control = document.querySelector('.sort-by-title');
   if (!control) return;

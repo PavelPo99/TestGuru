@@ -32,7 +32,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update_inline
     if @test.update(test_params)
-      redirect_to admin_tests_path # , notice: t("admin.tests.update.success")
+      redirect_to admin_tests_path, notice: t("admin.tests.update.success")
     else
       render :index
     end

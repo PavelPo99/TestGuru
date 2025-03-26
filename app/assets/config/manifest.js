@@ -2,3 +2,6 @@
 //= link_tree ../builds
 //= link_tree ../../javascript .js
 //= link_tree ../../../vendor/javascript .js
+//= link_directory ../stylesheets .scss
+//= link application.css
+// = link jquery.min.js
