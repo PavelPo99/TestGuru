@@ -69,14 +69,13 @@ en:
       header: "TestGuru | Admin Panel"
       welcome: "Welcome, %{email} Guru |"    
     tests:
-      test:
+      index:
         title: "Title"
         level: "Level"
         category: "Categories"
         author: "Author"
         num_of_questions: "The number of questions" 
-        no_questions: "A test in development"  
-      index:
+        action: "Action"
         header: "Tests"
         no_tests: "There are no Tests at the moment."
         sort_by_title: "Sort by title"
@@ -97,7 +96,13 @@ en:
         header: "%{test_title} Question" 
         question_body: "%{body}"
         answer: "Answer:"
-        new_answer: "New answer"   
+        new_answer: "New answer" 
+      create: 
+        success: "Question was successfully created."      
+      update:
+        success: "Question was successfully update."
+      delete:
+        success: "Question was successfully deleted."    
     answers:
       show:
         header: "Answer"   

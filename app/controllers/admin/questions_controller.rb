@@ -1,7 +1,6 @@
 class Admin::QuestionsController < Admin::BaseController
-
-  before_action :find_question, only: %i[ show  destroy edit  update ]
-  before_action :find_test, only: %i[ create  new index ]
+  before_action :find_question, only: %i[ show destroy edit update ]
+  before_action :find_test, only: %i[ create new index ]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
 
@@ -21,7 +20,7 @@ class Admin::QuestionsController < Admin::BaseController
     @question = @test.questions.new(question_params)
 
     if @question.save
-      redirect_to admin_test_path(@test), notice: 'Question was successfully created.'
+      redirect_to admin_test_path(@test), notice: t("admin.questions.create.success")
     else
       render :new
     end
@@ -29,16 +28,19 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(question_params)
-      redirect_to admin_test_path(@question.test), notice: 'Question was successfully update.'
+      redirect_to admin_test_path(@question.test), notice: t("admin.questions.update.success")
     else
       render :edit
     end
   end
 
   def destroy
+    @question.answers.each do |answer|
+      answer.destroy
+    end
     @question.destroy
 
-    redirect_to admin_test_path(@question.test), notice: 'Question was successfully deleted.'
+    redirect_to admin_test_path(@question.test), notice: t("admin.questions.delete.success")
   end
 
 
@@ -57,6 +59,6 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    redirect_to admin_tests_path, alert: 'Question not found.'
+    redirect_to admin_tests_path, alert: "Question not found."
   end
 end

@@ -1,5 +1,3 @@
-console.log('ok2')
-
 document.addEventListener('turbo:load', function() {
   // var controls = document.querySelectorAll('.form-inline-link')
 
@@ -11,12 +9,12 @@ document.addEventListener('turbo:load', function() {
 
   $('.form-inline-link').on('click', formInlineLinkHandler)
 
-  var errors = document.querySelector('.resource-errors')
+//   var errors = document.querySelector('.resource-errors')
 
-  if (errors) {
-    var resourceId = this.dataset.resourceId
-    formInlineHandler(resourceId)
-  }
+//   if (errors) {
+//     var resourceId = this.dataset.resourceId
+//     formInlineHandler(resourceId)
+//   }
 })
 
 function formInlineLinkHandler(event) {
@@ -39,13 +37,14 @@ function formInlineHandler(testId) {
   $formInline.toggle()
 
   if ($formInline.is(':visible')) {
-    link.textContent = 'Cancel'
+    link.textContent = document.querySelector('.nav-link.active').textContent.trim() === 'Рус' ?  "Отмена" : "Cancel"
   } else {
-    link.textContent = 'Edit'
+    link.textContent = document.querySelector('.nav-link.active').textContent.trim() === 'Рус' ?  "Редактировать" : "Edit"
   }
 
 
-  // if (formInline.classList.contains('hide')) {
+
+  // if (formInline.classList.contains('hide')) { 
   //   testTitle.classList.add('hide')
   //   formInline.classList.remove('hide')
   //   link.textContent = 'Cancel'

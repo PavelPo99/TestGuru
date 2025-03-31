@@ -1,5 +1,4 @@
 class TestPassage < ApplicationRecord
-
   SUCCESS_RATIO = 85
 
   belongs_to :user
@@ -12,20 +11,20 @@ class TestPassage < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_question += 1
     end
-    
+
     save!
   end
 
   def completed?
     if current_question.nil?
       self.current_question = nil
-      return true
+      true
     end
   end
 
   def current_question_number
     return test.questions.size if current_question.nil?
-    
+
     test.questions.order(:id).index(current_question) + 1
   end
 

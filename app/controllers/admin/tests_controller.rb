@@ -26,7 +26,7 @@ class Admin::TestsController < Admin::BaseController
     if @test.update(test_params)
       redirect_to admin_tests_path, notice: t("admin.tests.update.success")
     else
-      render :edit
+      render :edit, status: 422
     end
   end
 
@@ -34,7 +34,7 @@ class Admin::TestsController < Admin::BaseController
     if @test.update(test_params)
       redirect_to admin_tests_path, notice: t("admin.tests.update.success")
     else
-      render :index
+      render :index, status: 422
     end
   end
 
