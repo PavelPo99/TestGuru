@@ -8,6 +8,9 @@ ru:
       header: "Admin Panel | TestGuru"    
 
   helpers:
+    form_inline:
+      cancel: "Отмена"
+      edit: "Редактировать"
     submit:
       test:
         create: "Добавить тест"

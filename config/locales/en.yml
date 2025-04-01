@@ -8,6 +8,9 @@ en:
       header: "Admin Panel | TestGuru"   
 
   helpers:
+    form_inline:
+      cancel: "Cancel"
+      edit: "Edit"
     submit:
       test:
         create: "Create test"
