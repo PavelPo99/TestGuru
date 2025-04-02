@@ -1,10 +1,8 @@
 class Admin::TestsController < Admin::BaseController
+  before_action :set_tests, only: %i[ index update_inline ]
+  before_action :find_test, only: %i[ show edit update destroy update_inline ]
 
-  before_action :find_test, only: %i[ show edit update destroy ]
-
-  def index
-    @tests = Test.all
-  end
+  def index;  end
 
   def show; end
 
@@ -18,7 +16,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.created_tests.new(test_params)
 
     if @test.save
-      redirect_to admin_tests_path, notice: t('admin.tests.create.success')
+      redirect_to admin_tests_path, notice: t("admin.tests.create.success")
     else
       render :new
     end
@@ -26,9 +24,17 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(test_params)
-      redirect_to admin_tests_path, notice: t('admin.tests.update.success')
+      redirect_to admin_tests_path, notice: t("admin.tests.update.success")
     else
-      render :edit
+      render :edit, status: 422
+    end
+  end
+
+  def update_inline
+    if @test.update(test_params)
+      redirect_to admin_tests_path, notice: t("admin.tests.update.success")
+    else
+      render :index, status: 422
     end
   end
 
@@ -36,15 +42,19 @@ class Admin::TestsController < Admin::BaseController
     @test.questions.each do |question|
       question.answers.destroy_all
     end
-    
+
     @test.test_passages.destroy_all
     @test.destroy
 
-    redirect_to admin_tests_path, notice: t('admin.tests.delete.success')
+    redirect_to admin_tests_path, notice: t("admin.tests.delete.success")
   end
 
 
   private
+
+  def set_tests
+    @tests = Test.all
+  end
 
   def test_params
     params.require(:test).permit(:title, :level, :category_id, :author_id)

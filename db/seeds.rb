@@ -9,8 +9,7 @@
 require 'faker'
 
 
-# Удаляем существующие данные 
-CompletedTest.destroy_all
+# Удаляем существующие данные
 Answer.destroy_all
 Question.destroy_all
 Test.destroy_all
@@ -21,9 +20,9 @@ User.destroy_all
 
 # Создаем пользователей
 users = User.create!([
-  { name: "Михаил", email: "lessie@stokes.test" },
-  { name: "Анастасия", email: "lesley@mcdermott.example" },
-  { name: "Клавдия", email: "carmine@klocko.test" }
+  { first_name: "Михаил", email: "lessie@stokes.test", password: '123456' },
+  { first_name: "Анастасия", email: "lesley@mcdermott.example", password: '123456' },
+  { first_name: "Клавдия", email: "carmine@klocko.test", password: '123456' }
 ])
 
 # Создаем категории
@@ -37,10 +36,10 @@ categories = Category.create!([
 tests = Test.create!([
   { title: 'Ruby on Rails', level: 2, category_id: categories[0].id, author_id: users[0].id },
   { title: 'JavaScript', level: 1, category_id: categories[1].id, author_id: users[1].id },
-  { title: 'Machine Learning', level: 3, category_id: categories[2].id, author_id: users[2].id }, 
-  { title: 'Docker', level: 8, category_id: categories[2].id, author_id: users[0].id }, 
-  { title: 'HTML', level: 4, category_id: categories[1].id, author_id: users[0].id }, 
-  { title: 'MySQL', level: 0, category_id: categories[2].id, author_id: users[1].id }, 
+  { title: 'Machine Learning', level: 3, category_id: categories[2].id, author_id: users[2].id },
+  { title: 'Docker', level: 8, category_id: categories[2].id, author_id: users[0].id },
+  { title: 'HTML', level: 4, category_id: categories[1].id, author_id: users[0].id },
+  { title: 'MySQL', level: 0, category_id: categories[2].id, author_id: users[1].id },
   { title: 'Data Science', level: 5, category_id: categories[0].id, author_id: users[1].id }
 ])
 
@@ -61,15 +60,9 @@ answers = Answer.create!([
   { body: 'When a model learns too little from the training data', correct: false, question_id: questions[2].id }
 ])
 
-completed_tests = CompletedTest.create!(
-    [{ user_id: users[0].id, test_id: tests[0].id, status: true },
-     { user_id: users[1].id, test_id: tests[2].id, status: true },
-     { user_id: users[2].id, test_id: tests[1].id }]
-)
 
 puts "Создано #{User .count} пользователей"
 puts "Создано #{Category.count} категорий"
 puts "Создано #{Test.count} тестов"
 puts "Создано #{Question.count} вопросов"
 puts "Создано #{Answer.count} ответов"
-puts "Создано #{CompletedTest.count} пройденных тестов"

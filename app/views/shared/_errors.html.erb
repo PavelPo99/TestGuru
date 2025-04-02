@@ -1,7 +1,7 @@
-<% if resource.any? %>
-  <div>
+<% if resource.present? && resource.errors.any? %>
+  <%= content_tag :div, class: 'alert alert-danger resource-errors', data: { resource_id: resource.id } do %>
     <h2>
-      <%= t('.header', count: resource.errors.count) %>
+      <%= I18n.t('helpers.shared.errors.header', count: resource.errors.count) %>
     </h2>
   
     <ul>
@@ -9,5 +9,7 @@
         <li><%= message %></li>
       <% end %>
     </ul>
-  </div>  
+  <% end %>
 <% end %>
+
+

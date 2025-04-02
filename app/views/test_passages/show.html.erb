@@ -2,6 +2,19 @@
   <%= t('.header', title: @test_passage.test.title) %> <%= @test_passage.current_question_number %> / <%= @test_passage.test.questions.count %>
 </h1>
 
+
+<div class="progress">
+  <%= content_tag(:div, "", class: "progress-bar",
+                  role: "progressbar", 
+                  style: "width: 0%", 
+                  "aria-valuenow" => "0", 
+                  "aria-valuemin" => "0", 
+                  "aria-valuemax" => "100",
+                  data: {current_question: @test_passage.current_question_number, 
+                        total_question: @test_passage.test.questions.count })
+  %>   
+</div>
+
 <p class="lead text-left mb-4">
   <%= button_to t('.save_gist'), gists_path(test_passage_id: @test_passage), method: :post, class: 'btn btn-secondary' %>
 </p>

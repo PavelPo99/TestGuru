@@ -5,9 +5,12 @@ ru:
     application:
       header: "Test Guru" 
     admin:
-      header: "Admin Panel | TestGuru"   
+      header: "Admin Panel | TestGuru"    
 
   helpers:
+    form_inline:
+      cancel: "Отмена"
+      edit: "Редактировать"
     submit:
       test:
         create: "Добавить тест"
@@ -71,14 +74,13 @@ ru:
       welcome: "Добро пожаловать, %{email} Guru |"
 
     tests:  
-      test:
+      index:
         title: "Название"
         level: "Уровень"
         category: "Категория"
         author: "Автор"
         num_of_questions: "Колличество вопросов" 
-        no_questions: "Тест в разработке"  
-      index:
+        action: "Действия"
         header: "Tесты"
         no_tests: "На данный момент Тестов нет." 
         sort_by_title: "Cортировка по названию"   
@@ -100,6 +102,12 @@ ru:
         question_body: "%{body}"
         answer: "Ответ:"
         new_answer: "Добавить ответ"   
+      create: 
+        success: "Вопрос успешно создан."      
+      update:
+        success: "Вопрос обнавлен успешно."
+      delete:
+        success: "Вопрос успешно удален."  
     answers:
       show:
         header: "Ответ"   

@@ -3,6 +3,9 @@
 </h1>
 
 <%= form_with model: [:admin, @test], local: true, class: 'container' do |form| %>
+
+  <%= render 'shared/errors', resource: @test %>
+
   <div class="mb-3">
     <%= form.label :title, class: 'form-label' %>
     <%= form.text_field :title, class: 'form-control' %>
