@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   resources :gists, only: :create
 
+  resources :feedbacks, only: [ :new, :create ]
+
   namespace :admin do
     get "gists/index"
 
