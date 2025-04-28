@@ -11,7 +11,6 @@ categories = Category.create!([
   { title: "Database" }
 ])
 
-# Создаем тесты
 tests = Test.create!([
   { title: 'Ruby', level: 1, category_id: categories[0].id, author_id: Admin.first.id },
   { title: 'Ruby on Rails', level: 2, category_id: categories[0].id, author_id: Admin.first.id },
@@ -22,7 +21,6 @@ tests = Test.create!([
 ])
 
 
-  # Ruby Basics Test
   ruby_basics = tests[0]
   q1 = Question.create!(
     body: 'What is the output of: puts "hello".capitalize',
@@ -54,7 +52,6 @@ tests = Test.create!([
     { body: 'Checks for equality', correct: false, question: q3 }
   ])
 
-  # Ruby on Rails Test
   rails = tests[1]
   q4 = Question.create!(
     body: 'What is ActiveRecord in Rails?',
@@ -86,7 +83,6 @@ tests = Test.create!([
     { body: 'db/routes.yml', correct: false, question: q6 }
   ])
 
-  # JavaScript Test
   js = tests[2]
   q7 = Question.create!(
     body: 'How do you declare a variable in modern JavaScript?',
@@ -118,7 +114,6 @@ tests = Test.create!([
     { body: 'shift()', correct: false, question: q9 }
   ])
 
-  # Docker Test
   docker = tests[3]
   q10 = Question.create!(
     body: 'What is Docker?',
@@ -150,7 +145,7 @@ tests = Test.create!([
     { body: 'Compressing Docker images', correct: false, question: q12 }
   ])
 
-  # HTML & CSS Test
+
   html_css = tests[4]
   q13 = Question.create!(
     body: 'Which HTML5 tag is for navigation?',
@@ -182,7 +177,6 @@ tests = Test.create!([
     { body: 'Creative Style System', correct: false, question: q15 }
   ])
 
-  # PostgreSQL Test
   postgres = tests[5]
   q16 = Question.create!(
     body: 'Which command connects to PostgreSQL?',

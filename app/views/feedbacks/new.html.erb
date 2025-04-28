@@ -3,28 +3,23 @@
     <div class="col-md-8 col-lg-6">
       <div class="card shadow">
         <div class="card-header bg-primary text-white">
-          <h2 class="h4 mb-0">Feedback Form</h2>
+          <h2 class="h4 mb-0"><%= t('.title') %></h2>
         </div>
         
         <div class="card-body">
-          <%= form_with(model: @feedback, url: feedbacks_path, local: true) do |f| %>
+          <%= form_with(model: @feedback, url: feedbacks_path, local: true, data: { turbo: false }) do |f| %>
             <div class="mb-3">
-              <%= f.label :name, class: 'form-label' %>
+              <%= f.label :name, t('.name'), class: 'form-label' %>
               <%= f.text_field :name, class: 'form-control', required: true %>
             </div>
 
-            <div class="mb-3">
-              <%= f.label :email, class: 'form-label' %>
-              <%= f.email_field :email, class: 'form-control', required: true %>
-            </div>
-
             <div class="mb-4">
-              <%= f.label :message, 'Your Feedback', class: 'form-label' %>
+              <%= f.label :message, t('.message'), class: 'form-label' %>
               <%= f.text_area :message, rows: 5, class: 'form-control', required: true %>
             </div>
 
             <div class="d-grid">
-              <%= f.submit 'Send Feedback', class: 'btn btn-primary btn-lg' %>
+              <%= f.submit t('.submit'), class: 'btn btn-primary btn-lg' %>
             </div>
           <% end %>
         </div>
