@@ -1,13 +1,58 @@
-<nav class="navbar navbar-light bg-primary ">
-  <div class="container-md text-light">
-    <%= link_to t('.header'), root_path, class: 'navbar-brand' %> 
-    <%= link_to 'Gist', admin_gists_index_path, class: 'navbar-brand me-3'%>
+<nav class="navbar navbar-expand-lg navbar-dark shadow-sm bg-dark">
+  <div class="container">
+    <%= link_to root_path, class: 'navbar-brand d-flex align-items-center' do %>
+      <span class="fw-bold">TestGuru</span>
+    <% end %>
 
-    <span class="navbar-text text-light">
+  <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <%= link_to 'Admin Panel', admin_tests_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to 'Gists', admin_gists_index_path, class: 'nav-link' %>
+          </li>      
+      </ul> 
 
-      <%= t('.welcome', email: current_user.email )%>
-      <%= link_to t('helpers.link.log_out'), destroy_user_session_path,  data: { turbo_method: :delete,  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-outline-danger btn-sm'%>
+      <span class="navbar-text text-right text-light">
 
-    </span>
+        <%= t('.welcome', email: current_user.email )%>
+        <%= link_to t('helpers.link.log_out'), destroy_user_session_path,  data: { turbo_method: :delete,  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-light me-2 text-dark'%>
+      </span>      
   </div>
 </nav>
+
+
+<style>
+  .navbar {
+    padding: 0.75rem 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .navbar-brand {
+    font-size: 1.25rem;
+    transition: all 0.3s ease;
+  }
+  
+  .nav-link {
+    position: relative;
+    padding: 0.5rem 1rem;
+  }
+  
+  .nav-link:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 1rem;
+    right: 1rem;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link:hover:after {
+    transform: scaleX(1);
+  }
+  
+</style>
