@@ -1,5 +1,5 @@
 class FeedbackMailer < ApplicationMailer
-  default from: -> { @feedback&.email || "feedback@testguru.com" }
+  default from: -> { ENV.fetch("SMTP_USERNAME") || "feedback@testguru.com" }
 
   def feedback_email(feedback)
     @feedback = feedback
