@@ -5,7 +5,16 @@ en:
     application:
       header: "Test Guru" 
     admin:
-      header: "Admin Panel | TestGuru"   
+      header: "Admin Panel | TestGuru"  
+
+  feedbacks:
+    new:
+      title: "Feedback Form"
+      name: "Your Name"
+      message: "Your Feedback"
+      submit: "Send Feedback"
+    success: "Thank you for your feedback!"     
+    feedback: "Feedback"
 
   helpers:
     form_inline:

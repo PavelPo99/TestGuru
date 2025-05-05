@@ -7,6 +7,15 @@ ru:
     admin:
       header: "Admin Panel | TestGuru"    
 
+  feedbacks:
+    new:
+      title: "Форма обратной связи"
+      name: "Ваше имя"
+      message: "Ваше сообщение"
+      submit: "Отправить"
+    success: "Спасибо за ваш отзыв!"  
+    feedback: "Обратная связь"
+
   helpers:
     form_inline:
       cancel: "Отмена"
