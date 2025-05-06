@@ -1,5 +1,7 @@
 document.addEventListener('turbo:load', function() {
-  if (document.URL.includes('/test_passages/')) {
+  const testPassageUrlPattern = /\/test_passages\/\d+$/;
+
+  if (testPassageUrlPattern.test(document.URL)) {
     const progress_bars = document.querySelector('.progress-bar');
 
     const totalQuestion = progress_bars.dataset.totalQuestion
@@ -7,6 +9,6 @@ document.addEventListener('turbo:load', function() {
 
     let progress_test = (100 / totalQuestion) * (currentQuestion - 1)
     progress_bars.style = "width: " + progress_test + "%"
-    progress_bars.ariaValuenow = progress_test
+    progress_bars.setAttribute('aria-valuenow', progress_test)
   }
 })

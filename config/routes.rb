@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 
     resources :tests do
       patch :update_inline, on: :member
+      delete :destroy, on: :member
 
       resources :questions, shallow: true, except: :index do
         resources :answers, shallow: true, except: :index
