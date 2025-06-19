@@ -1,0 +1,19 @@
+<h1><%= t('admin.badge.index.badge') %></h1>
+
+<%= link_to t('admin.badge.index.new_badge'), new_admin_badge_path, class: 'btn btn-primary mb-3' %>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th><%= t('admin.badge.index.title') %></th>
+        <th><%= t('admin.badge.index.rule') %></th>
+        <th><%= t('admin.badge.index.image_url') %></th>
+        <th><%= t('admin.badge.index.action') %></th>
+      </tr>
+    </thead>
+      <tbody>
+        <%= render @badges %>
+      </tbody>
+  </table>
+</div>

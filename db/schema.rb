@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2025_03_05_202006) do
+ActiveRecord::Schema[7.2].define(version: 2025_05_27_172902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -23,10 +23,39 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_05_202006) do
     t.index ["question_id"], name: "index_answers_on_question_id"
   end
 
+  create_table "badge_users", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "badge_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["badge_id"], name: "index_badge_users_on_badge_id"
+    t.index ["user_id", "badge_id"], name: "index_badge_users_on_user_and_badge", unique: true
+    t.index ["user_id"], name: "index_badge_users_on_user_id"
+  end
+
+  create_table "badges", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "text", null: false
+    t.string "rule", null: false
+    t.string "image_url", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string "title", limit: 30, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.text "message"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -72,7 +101,7 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_05_202006) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "first_name"
+    t.string "first_name", limit: 20
     t.string "email", limit: 40, default: "", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -98,6 +127,9 @@ ActiveRecord::Schema[7.2].define(version: 2025_03_05_202006) do
   end
 
   add_foreign_key "answers", "questions"
+  add_foreign_key "badge_users", "badges"
+  add_foreign_key "badge_users", "users"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"

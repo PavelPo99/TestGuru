@@ -7,6 +7,15 @@ ru:
     admin:
       header: "Admin Panel | TestGuru"    
 
+  feedbacks:
+    new:
+      title: "Форма обратной связи"
+      name: "Ваше имя"
+      message: "Ваше сообщение"
+      submit: "Отправить"
+    success: "Спасибо за ваш отзыв!"  
+    feedback: "Обратная связь"
+
   helpers:
     form_inline:
       cancel: "Отмена"
@@ -53,7 +62,9 @@ ru:
     data:
       are_you_sure: "Вы уверены?"   
     select:
-      prompt: "Выберите категорию"          
+      prompt: "Выберите категорию"  
+    nav:
+      badges: "Награды"     
 
   tests:
     test:
@@ -72,7 +83,36 @@ ru:
     nav: 
       header: "TestGuru | панель администратора"
       welcome: "Добро пожаловать, %{email} Guru |"
+      admin_panel: "Панель Админа"     
+      gist: "Гист"
 
+    badge:
+      create: 
+        success: "Награда успешно создана."
+      update: 
+        success: "Награда успешно обновлена."
+      destroy: 
+        success: "Награда успешно удалена."
+      index:
+        action: "Действия"
+        image_url: "Ссылка на картинку"
+        rule: "Правила"
+        title: "Название"
+        badge: "Награды"
+        new_badge: "Создать новую награду"
+      show:
+        text: "Описание"
+        rule: "Правила"
+        users_count: "Количество пользователей получивших награду"
+      edit:
+        title: "Название"
+        text: "Описание"
+        rule: "Правила"
+        image_url: "Ссылка на картинку"
+        save_badge: "Сохранить"
+        edit_badge: "Редактировать награду"
+      new:
+       new_badge: "Создать награду"  
     tests:  
       index:
         title: "Название"
@@ -127,6 +167,7 @@ ru:
       failure: "Во время сохранения gist произошла ошибка"            
     
   test_passages:
+    badge: "Получена новая награда: %{name_badge}"
     result:
       header: "Тест %{title} завершен!"  
     show:
@@ -161,6 +202,12 @@ ru:
 
   sessions_controller:
     welcome: "Привет %{name}!"     
+
+  badge:
+    index:
+      my_badge: "Мои награды"  
+      received: "Получен"
+      no_badge: "Наград пока нет в наличии."
 
   devise:
     passwords:

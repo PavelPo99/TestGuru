@@ -7,6 +7,11 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_current_question
 
+  def passed
+    completed? && test_successful?
+  end
+  alias_method :passed?, :passed
+
   def accept!(answer_ids)
     if correct_answer?(answer_ids)
       self.correct_question += 1
@@ -16,10 +21,7 @@ class TestPassage < ApplicationRecord
   end
 
   def completed?
-    if current_question.nil?
-      self.current_question = nil
-      true
-    end
+    current_question.nil?
   end
 
   def current_question_number
