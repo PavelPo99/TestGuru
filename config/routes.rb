@@ -3,6 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { sessions: "sessions" }, path: :gurus, path_names: { sign_in: :login, sign_out: :logout }
 
+  resources :badges, only: [ :index ]
+
   resources :tests, only: :index do
       member do
       post :start
@@ -18,10 +20,12 @@ Rails.application.routes.draw do
 
   resources :gists, only: :create
 
-  resources :feedbacks, only: [ :new, :create ]
+  resources :feedbacks, only: %i[ new create ]
 
   namespace :admin do
     get "gists/index"
+
+    resources :badges, shallow: true
 
     resources :tests do
       patch :update_inline, on: :member

@@ -27,6 +27,12 @@ class TestPassagesController < ApplicationController
 
       TestMailer.completed_test(@test_passage).deliver_now
 
+      new_badges = BadgeAwardService.new(@test_passage).call
+
+      if new_badges.any?
+        flash[:notice] = t("test_passages.badge", name_badge: new_badges.map(&:title).join(", "))
+      end
+
       redirect_to result_test_passage_path(@test_passage)
     else
       redirect_to test_passage_path(@test_passage)

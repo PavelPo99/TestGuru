@@ -75,11 +75,43 @@ en:
       header: "Tests"
       no_tests: "There are no Tests at the moment."
       sort_by_title: "Sort by title"
+    nav:
+      badges: "Badges"    
 
   admin:
     nav: 
       header: "TestGuru | Admin Panel"
       welcome: "Welcome, %{email} Guru |"    
+      admin_panel: "Admin panel" 
+      gist: "Gists"    
+
+    badge:
+      create: 
+        success: "Badge was successfully created."
+      update: 
+        success: "Badge was successfully updated."
+      destroy: 
+        success: "Badge was successfully destroyed."
+      index:
+        action: "Action"
+        image_url: "Image url"
+        rule: "Rule"
+        title: "Title"
+        badge: "Badges"
+        new_badge: "New badge"
+      show:
+        text: "Description"
+        rule: "Rule"
+        users_count: "Users count"
+      edit:
+        title: "Title"
+        text: "Description"
+        rule: "Rule"
+        image_url: "Image url"
+        save_badge: "Save"
+        edit_badge: "Edit badge"
+      new:
+       new_badge: "New badge"  
     tests:
       index:
         title: "Title"
@@ -134,8 +166,9 @@ en:
       failure: "An error occured while saving gist"         
 
   test_passages:
+    badge: "Получена новая награда: %{name_badge}"
     result:
-      header: "Tes %{title} was completed!" 
+      header: "Test %{title} was completed!" 
     show:
       header: "Pass the %{title} test"  
       save_gist: "Save Question in Gist"   
@@ -167,7 +200,14 @@ en:
       description: "A question about %{test_title} from TestGuru"
 
   sessions_controller:
-    welcome: "Hello %{name}!"          
+    welcome: "Hello %{name}!"   
+
+  badge:
+    index:
+      my_badge: "My badges"  
+      received: "Received"   
+      no_badge: "No badges available yet."
+   
 
   devise:
     passwords:

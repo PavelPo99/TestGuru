@@ -1,5 +1,10 @@
 ru:
   activerecord:
+    badge:
+      all_backend_tests: "Пройдены все тесты категории Backend"
+      first_attempt: "Тест пройден с первой попытки"
+      all_frontend_tests: "Пройдены все тесты категории Frontend"
+      all_tests_of_1_level: "Пройдены все тесты 1 уровня"
     models:
       test: "Тест"
       user: "Пользователь" 
