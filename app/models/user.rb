@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
   validates :email, presence: true,  format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
+  has_many :badge_users, dependent: :destroy
+  has_many :badges, through: :badge_users
 
   def tests_by_level(level)
     tests.by_level(level)

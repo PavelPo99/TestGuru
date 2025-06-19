@@ -1,0 +1,44 @@
+.earned-badge {
+  position: relative;
+  border: 2px solid #FFD700;
+  transition: all 0.3s ease;
+}
+
+.earned-badge:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+}
+
+.earned-ribbon {
+  position: absolute;
+  top: 10px;
+  right: -10px;
+  background: #FFD700;
+  color: #000;
+  padding: 3px 15px;
+  font-size: 12px;
+  font-weight: bold;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.earned-ribbon:before {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  right: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid #c90;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+}
+
+.badge-icon {
+  max-height: 100px;
+  filter: drop-shadow(0 2px 5px rgba(0,0,0,0.2));
+}
+
+.grayscale {
+  filter: grayscale(100%) brightness(0.7);
+}
