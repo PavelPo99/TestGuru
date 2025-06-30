@@ -135,6 +135,9 @@ en:
         success: "Test was successfully update."
       delete:
         success: "Test was successfully deleted."
+      form: 
+        zero: "0 - means there is no timer."  
+        timer: "Timer (minutes)"           
     questions:
       show:
         header: "%{test_title} Question" 
@@ -171,7 +174,8 @@ en:
       header: "Test %{title} was completed!" 
     show:
       header: "Pass the %{title} test"  
-      save_gist: "Save Question in Gist"   
+      save_gist: "Save Question in Gist" 
+      still_time: "There's still time left:"           
 
   test_passages_helper:
     success_rate_message:

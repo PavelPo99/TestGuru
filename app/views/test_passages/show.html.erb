@@ -2,6 +2,17 @@
   <%= t('.header', title: @test_passage.test.title) %> <%= @test_passage.current_question_number %> / <%= @test_passage.test.questions.count %>
 </h1>
 
+<% if @test_passage.timer_enabled? %>
+  <div class="timer-container">
+    <%= t('.still_time') %> 
+    <span id="timer" 
+          data-minutes="<%= @test_passage.remaining_minutes %>"
+          data-seconds="<%= @test_passage.remaining_seconds %>"
+          data-timeout-url="<%= result_test_passage_path(@test_passage) %>">
+      <%= "#{@test_passage.remaining_minutes}:#{@test_passage.remaining_seconds.to_s.rjust(2, '0')}" %>
+    </span>
+  </div>
+<% end %>
 
 <div class="progress">
   <%= content_tag(:div, "", class: "progress-bar",

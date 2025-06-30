@@ -12,12 +12,12 @@ categories = Category.create!([
 ])
 
 tests = Test.create!([
-  { title: 'Ruby', level: 1, category_id: categories[0].id, author_id: Admin.first.id },
-  { title: 'Ruby on Rails', level: 2, category_id: categories[0].id, author_id: Admin.first.id },
-  { title: 'JavaScript', level: 1, category_id: categories[1].id, author_id: Admin.first.id },
-  { title: 'Docker', level: 3, category_id: categories[2].id, author_id: Admin.first.id },
-  { title: 'HTML & CSS', level: 2, category_id: categories[1].id, author_id: Admin.first.id },
-  { title: 'PostgreSQL', level: 3, category_id: categories[2].id, author_id: Admin.first.id }
+  { title: 'Ruby', level: 1, category_id: categories[0].id, author_id: Admin.first.id, timer: 0 },
+  { title: 'Ruby on Rails', level: 2, category_id: categories[0].id, author_id: Admin.first.id, timer: 0 },
+  { title: 'JavaScript', level: 1, category_id: categories[1].id, author_id: Admin.first.id, timer: 0 },
+  { title: 'Docker', level: 3, category_id: categories[2].id, author_id: Admin.first.id, timer: 0 },
+  { title: 'HTML & CSS', level: 2, category_id: categories[1].id, author_id: Admin.first.id, timer: 0 },
+  { title: 'PostgreSQL', level: 3, category_id: categories[2].id, author_id: Admin.first.id, timer: 0 }
 ])
 
 

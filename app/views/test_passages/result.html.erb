@@ -3,6 +3,15 @@
     <%= t('.header', title: @test_passage.test.title) %>
   </h1>
 
+  <% if @test_passage.timer_enabled? %>
+    <div class="timer-container">
+      <%= t('.still_time') %>
+      <span id="timer">
+        <%= "#{@test_passage.remaining_minutes}:#{@test_passage.remaining_seconds.to_s.rjust(2, '0')}" %>
+      </span>
+    </div>
+  <% end %>
+  
   <%= success_rate_message(@test_passage) %>
 
   <p class="text-start my-4">

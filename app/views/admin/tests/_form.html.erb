@@ -21,6 +21,12 @@
     <%= form.select :category_id, Category.all.collect { |p| [ p.title, p.id ] }, { prompt: true }, class: 'form-select' %>
   </div>
 
+  <div class="mb-3">
+    <%= form.label :timer, t('.timer'), class: 'form-label' %>
+    <%= form.number_field :timer, min: 0, class: 'form-control' %>
+    <small class="form-text text-muted"><%= t('.zero') %></small>
+  </div>
+
   <div class="text-center">
     <%= form.submit class: 'btn btn-primary' %>
   </div>

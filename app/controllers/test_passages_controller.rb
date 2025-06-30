@@ -1,12 +1,21 @@
 class TestPassagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_test_passage, only: %i[ show result update ]
+  before_action :check_timer, only: [ :update ]
+
 
   def show; end
 
   def result; end
 
   def update
+    @test_passage = TestPassage.find(params[:id])
+
+    if @test_passage.time_over?
+      redirect_to result_test_passage_path(@test_passage)
+      return
+    end
+
     if @test_passage.question_any?(params)
       @test_passage.accept!(params[:answer_ids])
 
@@ -17,6 +26,13 @@ class TestPassagesController < ApplicationController
   end
 
   private
+
+  def check_timer
+    @test_passage = TestPassage.find(params[:id])
+    if @test_passage.time_over?
+      redirect_to result_test_passage_path(@test_passage)
+    end
+  end
 
   def set_test_passage
     @test_passage = TestPassage.find(params[:id])
