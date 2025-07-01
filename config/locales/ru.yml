@@ -173,6 +173,7 @@ ru:
     badge: "Получена новая награда: %{name_badge}"
     result:
       header: "Тест %{title} завершен!"  
+      still_time: "Осталось времени:"   
     show:
       header: "Прохождение теста: %{title}"  
       save_gist: "Сохранить вопрос в Gist" 

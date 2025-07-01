@@ -172,10 +172,10 @@ en:
     badge: "Получена новая награда: %{name_badge}"
     result:
       header: "Test %{title} was completed!" 
+      still_time: "There's still time left:"      
     show:
       header: "Pass the %{title} test"  
-      save_gist: "Save Question in Gist" 
-      still_time: "There's still time left:"           
+      save_gist: "Save Question in Gist"        
 
   test_passages_helper:
     success_rate_message:
