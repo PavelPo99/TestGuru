@@ -13,7 +13,7 @@ gem "stimulus-rails"
 gem "jsbundling-rails"
 gem "jbuilder"
 gem "bootsnap", require: false
-gem "faker", "~> 3.5", ">= 3.5.1"
+gem "faker", "~> 3.5"
 gem "devise", "~> 4.9"
 gem "octokit"
 
