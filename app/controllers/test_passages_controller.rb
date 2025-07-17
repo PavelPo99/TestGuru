@@ -25,12 +25,14 @@ class TestPassagesController < ApplicationController
   def completed_test
     if @test_passage.completed?
 
-      TestMailer.completed_test(@test_passage).deliver_now
+      TestMailer.completed_test(@test_passage).deliver_later
 
-      new_badges = BadgeAwardService.new(@test_passage).call
+      if @test_passage.test_successful?
+        new_badges = BadgeAwardService.new(@test_passage).call
 
-      if new_badges.any?
-        flash[:notice] = t("test_passages.badge", name_badge: new_badges.map(&:title).join(", "))
+        if new_badges.any?
+          flash[:notice] = t("test_passages.badge", name_badge: new_badges.map(&:title).join(", "))
+        end
       end
 
       redirect_to result_test_passage_path(@test_passage)

@@ -1,39 +1,44 @@
 class BadgeAwardService
   RULE_CLASSES = {
-    all_backend_tests: "Badges::AllBackendTests",
     first_attempt: "Badges::FirstAttempt",
-    all_frontend_tests: "Badges::AllFrontendTests",
-    all_tests_of_1_level: "Badges::AllTestsOf1Level"
-  }.freeze
+    all_tests_in_category: "Badges::AllTestsInCategory",
+    all_tests_of_level: "Badges::AllTestsOfLevel"
+  }.with_indifferent_access.freeze
+
 
   def initialize(test_passage)
     @test_passage = test_passage
     @user = test_passage.user
+    @test = test_passage.test
     @new_badges = []
   end
 
   def call
-    Badge.where.not(id: @user.badge_ids).each do |badge|
-      rule_class = self.class.rule_class_for(badge.rule)
+    badges = Badge.includes(:badge_users).all
+
+    badges.each do |badge|
+      rule_name, param = badge.rule.split(":")
+      rule_class = self.class.rule_class_for(rule_name)
+
       next unless rule_class
 
-      if rule_class.reward?(@user, @test_passage)
+      if rule_class.reward?(@user, @test_passage, param)
         award_badge(badge)
       end
     end
+
     @new_badges
   end
 
   def self.rule_class_for(rule_name)
-    RULE_CLASSES[rule_name.to_sym]&.constantize
+    RULE_CLASSES[rule_name]&.constantize
   end
+
 
   private
 
   def award_badge(badge)
-    unless @user.badges.include?(badge)
-      @user.badges << badge
-      @new_badges << badge
-    end
+    BadgeUser.create!(user: @user, badge: badge)
+    @new_badges << badge
   end
 end

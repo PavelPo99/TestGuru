@@ -10,33 +10,55 @@
     </div>
   <% end %>
 
-  <div class="form-group">
-    <%= form.label t('admin.badge.edit.title') %>
+  <div class="form-group mb-3">
+    <%= form.label :title, class: 'form-label' %>
     <%= form.text_field :title, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label t('admin.badge.edit.text') %>
+  <div class="form-group mb-3">
+    <%= form.label :text, class: 'form-label' %>
     <%= form.text_area :text, class: 'form-control' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label t('admin.badge.edit.rule') %>
-    <%= form.select :rule, 
-                    options_for_select(
-                      Badge.rules_with_descriptions.map { |k, v| [v, k.to_s] },
-                      @badge.rule
-                    ),
-                    {}, 
-                    class: 'form-control' %>
+  <div class="form-group mb-3">
+    <%= form.label :rule, class: 'form-label' %>
+    <div class="row g-2">
+      <div class="col-md-6">
+        <%= select_tag :rule_type, 
+            options_for_select(
+              available_badge_rules.map { |k, v| [v[:description], k] },
+              selected: @badge.rule&.split(':')&.first
+            ),
+            include_blank: t('admin.badge.select_rule'),
+            class: 'form-select',
+            id: 'rule_type_select' %>
+      </div>
+      <div class="col-md-6">
+        <div id="rule_parameter_container" class="d-none">
+          <%= select_tag :rule_parameter, 
+              options_for_select([]),
+              class: 'form-select',
+              id: 'rule_parameter_select' %>
+        </div>
+      </div>
+    </div>
+    <%= form.hidden_field :rule, id: 'rule_field' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label t('admin.badge.edit.image_url') %>
+  <div class="form-group mb-3">
+    <%= form.label :image_url, class: 'form-label' %>
     <%= form.text_field :image_url, class: 'form-control', placeholder: 'URL или путь к изображению' %>
   </div>
 
-  <div class="actions">
+  <div class="actions mt-4">
     <%= form.submit class: 'btn btn-primary' %>
+    <%= link_to t('common.back'), admin_badges_path, class: 'btn btn-secondary' %>
   </div>
+
+  <div id="badge-rules-data" 
+       data-rules="<%= available_badge_rules.to_json %>"
+       data-current-rule="<%= @badge.rule %>"
+       style="display: none;"></div>
 <% end %>
+
+<%= javascript_include_tag 'utilities/rules_badge', 'data-turbo-track': 'reload', defer: true %>
