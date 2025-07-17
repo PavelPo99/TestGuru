@@ -14,9 +14,12 @@ class User < ApplicationRecord
   has_many :test_passages, dependent: :delete_all
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: "Test", foreign_key: "author_id"
+  has_many :feedbacks, dependent: :delete_all
 
   validates :email, presence: true,  format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
+  has_many :badge_users, dependent: :destroy
+  has_many :badges, through: :badge_users
 
   def tests_by_level(level)
     tests.by_level(level)

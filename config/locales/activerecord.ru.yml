@@ -1,5 +1,9 @@
 ru:
   activerecord:
+    badge:
+      all_tests_in_category: "Пройдены все тесты категории: "
+      first_attempt: "Тест пройден с первой попытки"
+      all_tests_of_level: "Пройдены все тесты уровня: "
     models:
       test: "Тест"
       user: "Пользователь" 

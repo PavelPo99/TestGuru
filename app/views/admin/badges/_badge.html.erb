@@ -1,0 +1,23 @@
+<tr>
+  <td><%= badge.title %></td>
+  <td><%= badge_rule_description(badge) %></td>
+  <td><%= badge.image_url %></td>
+  <td class="aling-middle">  
+      <%= button_to t('helpers.button.show'), admin_badge_path(badge), method: :get, params: { lang: params[:lang] }, class: 'btn btn-outline-primary w-80', as: "style" %>
+    </td>
+    <td class="aling-middle">  
+      <%= button_to t('helpers.button.edit'), edit_admin_badge_path(badge), method: :get, params: { lang: params[:lang] }, class: 'btn btn-outline-primary w-80', as: "style" %>
+    </td>
+    
+    <td class="aling-middle">  
+      <%= button_to t('helpers.button.delete'), 
+                admin_badge_path(badge), 
+                method: :delete,
+                form: { 
+                  data: { 
+                    turbo_confirm: t('helpers.data.are_you_sure') 
+                  } 
+                },
+                class: 'btn btn-outline-primary w-80' %>
+    </td>  
+</tr>

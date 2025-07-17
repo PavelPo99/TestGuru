@@ -1,5 +1,9 @@
 en:
   activerecord:
+    badge:
+      all_tests_in_category: "Passed all the category tests: "
+      first_attempt: "Test passed on the first attempt"
+      all_tests_of_level: "All level tests passed: "
     models:
       test: "Test"
       user: "User" 

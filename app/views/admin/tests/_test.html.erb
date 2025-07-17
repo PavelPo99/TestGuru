@@ -20,6 +20,14 @@
                   data: { test_id: test.id, cancel: t('helpers.form_inline.cancel'), edit: t('helpers.form_inline.edit') }  %>
   </td>
   <td class="aling-middle">  
-    <%= button_to t('helpers.button.delete'), admin_test_path(test), data: { turbo_method: :delete,  turbo_confirm: t('helpers.data.are_you_sure') }, class: 'btn btn-outline-primary w-80' %>
+    <%= button_to t('helpers.button.delete'), 
+              admin_test_path(test), 
+              method: :delete,
+              form: { 
+                data: { 
+                  turbo_confirm: t('helpers.data.are_you_sure') 
+                } 
+              },
+              class: 'btn btn-outline-primary w-80' %>
   </td>  
 </tr>

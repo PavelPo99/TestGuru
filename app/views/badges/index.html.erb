@@ -1,0 +1,39 @@
+<div class="container">
+  <h1 class="text-center my-4"><%= t('badge.index.my_badge') %></h1>
+
+  <% if @all_badges.present? %>
+    <div class="row">
+      <% @all_badges.each do |badge| %>
+        <div class="col-md-4 mb-4">
+          <div class="card h-100 shadow-sm <%= 'earned-badge' if @my_badge_ids.include?(badge.id) %>">
+            <% if @my_badge_ids.include?(badge.id) %>
+              <div class="earned-ribbon"><%= t('badge.index.received') %>
+               <% count = @badge_counts[badge.id] || 0 %>
+                <% if count > 0 %>
+                  <span class="badge-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <%= count %>
+                  </span>
+                <% end %>
+              </div>
+            <% end %>
+            
+            <div class="card-body text-center">
+              <%= image_tag badge.image_url, class: "img-fluid mb-3 badge-icon #{'grayscale' unless @my_badge_ids.include?(badge.id)}", alt: badge.title %>
+              <h3 class="card-title <%= 'text-muted' unless @my_badge_ids.include?(badge.id) %>"><%= badge.title %></h3>
+              <p class="card-text <%= 'text-muted' unless @my_badge_ids.include?(badge.id) %>"><%= badge.text %></p>
+              <div class="badge-criteria mt-3">
+                <span class="badge <%= @my_badge_ids.include?(badge.id) ? 'bg-success' : 'bg-secondary' %>">
+                  <%= badge_rule_description(badge) %>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <div class="alert alert-info text-center">
+      <%= t('badge.index.no_badge') %>
+    </div>
+  <% end %>
+</div>
