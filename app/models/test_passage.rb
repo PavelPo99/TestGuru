@@ -7,11 +7,49 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_current_question
 
+  
+  def timer_enabled?
+    test.timer != 0
+  end
+
+  def time_over?
+    return false unless timer_enabled? && !completed?
+    return false unless test_completion_time
+
+    Time.current >= test_completion_time
+  end
+
+  def test_completion_time
+    return unless test.timer.present?
+    created_at + (test.timer * 60)
+  end
+
+  def remaining_time
+    return unless timer_enabled?
+    [ test_completion_time - Time.current, 0 ].max.round
+  end
+
+  def remaining_minutes
+    return unless remaining_time
+    (remaining_time / 60).floor
+  end
+
+  def remaining_seconds
+    return unless remaining_time
+    remaining_time % 60
+  end
+
   def passed?
     completed? && test_successful?
   end
 
   def accept!(answer_ids)
+    if time_over?
+      self.current_question = nil
+      save!
+      return
+    end
+
     if correct_answer?(answer_ids)
       self.correct_question += 1
     end

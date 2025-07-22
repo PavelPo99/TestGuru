@@ -135,7 +135,10 @@ ru:
       update:
         success: "Тест обнавлен успешно."
       delete:
-        success: "Тест успешно удален."       
+        success: "Тест успешно удален."   
+      form: 
+        zero: "0 - означает отсутствие таймерa"  
+        timer: "Таймер (минут)"    
     questions:
       show: 
         header: "%{test_title} вопрос"  
@@ -168,11 +171,14 @@ ru:
     
   test_passages:
     badge: "Получена новая награда: %{name_badge}"
+    times_up: "Тест завершен. Время вышло!" 
     result:
       header: "Тест %{title} завершен!"  
+      still_time: "Осталось времени:"   
     show:
       header: "Прохождение теста: %{title}"  
-      save_gist: "Сохранить вопрос в Gist"   
+      save_gist: "Сохранить вопрос в Gist" 
+      still_time: "Осталось времени:"   
 
   test_passages_helper:
     success_rate_message:
