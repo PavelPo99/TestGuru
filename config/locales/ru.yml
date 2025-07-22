@@ -171,6 +171,7 @@ ru:
     
   test_passages:
     badge: "Получена новая награда: %{name_badge}"
+    times_up: "Тест завершен. Время вышло!" 
     result:
       header: "Тест %{title} завершен!"  
       still_time: "Осталось времени:"   

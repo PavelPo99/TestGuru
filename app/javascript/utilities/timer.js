@@ -2,6 +2,7 @@ document.addEventListener("turbo:load", function() {
   const timerElement = document.getElementById("timer");
   if (!timerElement) return;
 
+  const form = document.getElementById("test-passage-form");
   const initialMinutes = parseInt(timerElement.dataset.minutes) || 0;
   const initialSeconds = parseInt(timerElement.dataset.seconds) || 0;
   let totalSeconds = initialMinutes * 60 + initialSeconds;
@@ -9,19 +10,16 @@ document.addEventListener("turbo:load", function() {
   function updateTimer() {
     if (totalSeconds <= 0) {
       clearInterval(timerInterval);
+      timerElement.textContent = "0:00";
+
+      if (form) form.submit();
       
-      const redirectUrl = timerElement.dataset.timeoutUrl;
-      if (redirectUrl && redirectUrl !== 'undefined') {
-        window.location.href = redirectUrl;
-      }
       return;
     }
 
     totalSeconds--;
-    
     const minutes = Math.floor(totalSeconds / 60);
     const seconds = totalSeconds % 60;
-    
     timerElement.textContent = `${minutes}:${seconds.toString().padStart(2, "0")}`;
   }
 

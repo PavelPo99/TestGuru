@@ -14,6 +14,12 @@
   </div>
 <% end %>
 
+<% if @test_passage.timer_enabled? %>
+  <div id="timeout-alert" class="alert alert-danger" style="display: none;">
+    <%= t('.times_up') %>
+  </div>
+<% end %>
+
 <div class="progress">
   <%= content_tag(:div, "", class: "progress-bar",
                   role: "progressbar", 
@@ -34,7 +40,11 @@
   <%= @test_passage.current_question.body %>
 </p>
 
-<%= form_with url: test_passage_path(@test_passage), method: :put, local: true, class: 'mb-4' do |form| %>
+<%= form_with url: test_passage_path(@test_passage), 
+             method: :put, 
+             local: true, 
+             class: 'mb-4',
+             id: 'test-passage-form' do |form| %>
   <div class="list-group">
     <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :body, include_hidden: false do |b| %>
       <div class="list-group-item">
@@ -47,6 +57,8 @@
   </div>
 
   <div class="text-center mt-4">
-    <%= form.submit t('helpers.submit.test_passages.next'), class: 'btn btn-primary btn-lg' %>
+    <%= form.submit t('helpers.submit.test_passages.next'), 
+                   class: 'btn btn-primary btn-lg',
+                   id: 'submit-button' %>
   </div>
 <% end %>

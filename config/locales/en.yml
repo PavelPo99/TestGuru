@@ -170,12 +170,13 @@ en:
 
   test_passages:
     badge: "Получена новая награда: %{name_badge}"
+    times_up: "The test is completed. Time's up!"        
     result:
       header: "Test %{title} was completed!" 
       still_time: "There's still time left:"      
     show:
       header: "Pass the %{title} test"  
-      save_gist: "Save Question in Gist"        
+      save_gist: "Save Question in Gist"    
 
   test_passages_helper:
     success_rate_message:

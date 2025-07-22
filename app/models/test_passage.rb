@@ -13,15 +13,17 @@ class TestPassage < ApplicationRecord
   end
 
   def time_over?
-    return unless timer_enabled?
-    return false unless test.timer.present? && !completed?
+    return false unless timer_enabled? && !completed?
+    return false unless test_completion_time
 
     Time.current >= test_completion_time
   end
 
   def test_completion_time
-    created_at + (test.timer * 60) if test.timer.present?
+    return unless test.timer.present?
+    created_at + (test.timer * 60)
   end
+
   def remaining_time
     return unless timer_enabled?
     [ test_completion_time - Time.current, 0 ].max.round
