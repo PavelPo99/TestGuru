@@ -29,7 +29,6 @@ ActiveRecord::Schema[7.2].define(version: 2025_07_08_174941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["badge_id"], name: "index_badge_users_on_badge_id"
-    t.index ["user_id", "badge_id"], name: "index_badge_users_on_user_and_badge", unique: true
     t.index ["user_id"], name: "index_badge_users_on_user_id"
   end
 

@@ -1,8 +1,8 @@
 module Badges
   class FirstAttempt
-    def self.reward?(user, test_passage)
+    def self.reward?(user, test_passage, _param = nil)
       test_passage.passed? &&
-      TestPassage.where(user: user, test: test_passage.test).count == 1
+        user.test_passages.where(test: test_passage.test).passed?.count == 1
     end
   end
 end

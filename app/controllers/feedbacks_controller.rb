@@ -9,8 +9,8 @@ class FeedbacksController < ApplicationController
     @feedback.email = current_user.email
     @feedback.author = current_user
 
-    if @feedback.save
-      FeedbackMailer.feedback_email(@feedback).deliver_now
+    if @feedback.valid?
+      FeedbackMailer.feedback_email(@feedback).deliver_later
       redirect_to root_path, notice: t(".success")
     else
       render :new

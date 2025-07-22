@@ -7,7 +7,14 @@
         <div class="col-md-4 mb-4">
           <div class="card h-100 shadow-sm <%= 'earned-badge' if @my_badge_ids.include?(badge.id) %>">
             <% if @my_badge_ids.include?(badge.id) %>
-              <div class="earned-ribbon"><%= t('badge.index.received') %></div>
+              <div class="earned-ribbon"><%= t('badge.index.received') %>
+               <% count = @badge_counts[badge.id] || 0 %>
+                <% if count > 0 %>
+                  <span class="badge-count position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                    <%= count %>
+                  </span>
+                <% end %>
+              </div>
             <% end %>
             
             <div class="card-body text-center">
@@ -16,7 +23,7 @@
               <p class="card-text <%= 'text-muted' unless @my_badge_ids.include?(badge.id) %>"><%= badge.text %></p>
               <div class="badge-criteria mt-3">
                 <span class="badge <%= @my_badge_ids.include?(badge.id) ? 'bg-success' : 'bg-secondary' %>">
-                  <%= Badge.rules_with_descriptions[badge.rule.to_sym] %>
+                  <%= badge_rule_description(badge) %>
                 </span>
               </div>
             </div>

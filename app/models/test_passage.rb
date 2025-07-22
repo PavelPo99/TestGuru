@@ -7,7 +7,7 @@ class TestPassage < ApplicationRecord
 
   before_validation :set_current_question
 
-
+  
   def timer_enabled?
     test.timer != 0
   end
