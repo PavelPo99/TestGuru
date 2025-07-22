@@ -33,7 +33,6 @@ class TestPassagesController < ApplicationController
     if @test_passage.completed?
       send_completion_notifications
       award_badges
-
       redirect_to result_test_passage_path(@test_passage)
     else
       redirect_to test_passage_path(@test_passage)

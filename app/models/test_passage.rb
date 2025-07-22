@@ -39,11 +39,9 @@ class TestPassage < ApplicationRecord
     remaining_time % 60
   end
 
-  def passed
+  def passed?
     completed? && test_successful?
   end
-
-  alias_method :passed?, :passed
 
   def accept!(answer_ids)
     if time_over?
