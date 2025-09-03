@@ -5,7 +5,7 @@ gem "rails", "~> 7.2.2", ">= 7.2.2.1"
 gem "rails-i18n", "~> 7.0"
 
 gem "sprockets-rails"
-gem "pg", "~> 1.5", ">= 1.5.9"
+gem "pg", "~> 1.6"
 gem "puma", ">= 5.0"
 gem "importmap-rails"
 gem "turbo-rails"
